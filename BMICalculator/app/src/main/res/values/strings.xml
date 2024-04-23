@@ -3,4 +3,5 @@
     <string name="hint_wt">Enter your Weight(In Kg)</string>
     <string name="hint_htf">Enter Your Height(In Ft)</string>
     <string name="hint_hti">Enter your Height(In Inch)</string>
+    <string name="text_btnCalculate">Calculate BMI</string>
 </resources>
