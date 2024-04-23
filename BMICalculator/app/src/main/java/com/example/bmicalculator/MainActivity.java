@@ -1,9 +1,11 @@
 package com.example.bmicalculator;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -28,14 +30,17 @@ public class MainActivity extends AppCompatActivity {
         EditText editWeight, editHeightFt,editHeightInch;
         Button btnCalculate;
         TextView txt_result;
+        LinearLayout main;
 
         editWeight = findViewById(R.id.editWeight);
         editHeightFt = findViewById(R.id.editHeightFt);
         editHeightInch = findViewById(R.id.editHeightInch);
         btnCalculate = findViewById(R.id.btnCalculate);
         txt_result = findViewById(R.id.txt_result);
+        main = findViewById(R.id.main);
 
         btnCalculate.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                int weight = Integer.parseInt(editWeight.getText().toString());
@@ -49,12 +54,33 @@ public class MainActivity extends AppCompatActivity {
 
                if (bmi>25){
                    txt_result.setText("You're Overweight");
+                   txt_result.setTextColor(getResources().getColor(R.color.black));
+                   btnCalculate.setBackgroundColor(getResources().getColor(R.color.black));
+                   btnCalculate.setTextColor(getResources().getColor(R.color.white));
+                   editWeight.setTextColor(getResources().getColor(R.color.black));
+                   editHeightFt.setTextColor(getResources().getColor(R.color.black));
+                   editHeightInch.setTextColor(getResources().getColor(R.color.black));
+                   main.setBackgroundColor(getResources().getColor(R.color.colOw));
                }
                else if (bmi<18){
                    txt_result.setText("You're Underweight");
+                   txt_result.setTextColor(getResources().getColor(R.color.black));
+                   btnCalculate.setBackgroundColor(getResources().getColor(R.color.black));
+                   btnCalculate.setTextColor(getResources().getColor(R.color.white));
+                   editWeight.setTextColor(getResources().getColor(R.color.black));
+                   editHeightFt.setTextColor(getResources().getColor(R.color.black));
+                   editHeightInch.setTextColor(getResources().getColor(R.color.black));
+                   main.setBackgroundColor(getResources().getColor(R.color.colUw));
                }
                else {
                    txt_result.setText("You're Healthy");
+                   txt_result.setTextColor(getResources().getColor(R.color.black));
+                   btnCalculate.setBackgroundColor(getResources().getColor(R.color.black));
+                   btnCalculate.setTextColor(getResources().getColor(R.color.white));
+                   editWeight.setTextColor(getResources().getColor(R.color.black));
+                   editHeightFt.setTextColor(getResources().getColor(R.color.black));
+                   editHeightInch.setTextColor(getResources().getColor(R.color.black));
+                   main.setBackgroundColor(getResources().getColor(R.color.colH));
                }
             }
         });

@@ -17,7 +17,8 @@
         android:ems="10"
         android:hint="@string/hint_wt"
         android:inputType="number"
-        android:minHeight="48dp"/>
+        android:minHeight="48dp"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/editHeightFt"
@@ -26,7 +27,8 @@
         android:ems="10"
         android:hint="@string/hint_htf"
         android:inputType="number"
-        android:minHeight="48dp"/>
+        android:minHeight="48dp"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/editHeightInch"
@@ -35,18 +37,21 @@
         android:ems="10"
         android:hint="@string/hint_hti"
         android:inputType="number"
-        android:minHeight="48dp"/>
+        android:minHeight="48dp"
+        android:textAlignment="center" />
+
     <Button
+        android:id="@+id/btnCalculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/text_btnCalculate"
-        android:id="@+id/btnCalculate"/>
+        android:textAlignment="center" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_result"
-        android:text="Result"
+        android:text="@string/text_result"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"/>
