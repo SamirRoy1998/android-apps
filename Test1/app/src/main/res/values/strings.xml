@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Test 1</string>
+    <string name="like">LIke</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
+    <string name="content_name_1">Bike</string>
+    <string name="content_name_2">Car</string>
+    <string name="photo_1">Bike</string>
+    <string name="photo_2">Car</string>
+</resources>

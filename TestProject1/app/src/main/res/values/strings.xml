@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Test Project 1</string>
+    <string name="text_1">Photo 1</string>
+    <string name="text_2">Photo 2</string>
+    <string name="like">LIke</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
+</resources>

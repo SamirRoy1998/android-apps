@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Introduction</string>
+    <string name="img1_description">Image 1 Description</string>
+    <string name="txt_inro">Hello my name is Samir, I am 26 years old, I live in Bongaigaon. I love to make Android Apps, I am new and i have no experience in app devloping</string>
+</resources>
