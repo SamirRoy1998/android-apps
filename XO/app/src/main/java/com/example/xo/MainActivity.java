@@ -39,52 +39,46 @@ public class MainActivity extends AppCompatActivity {
         btn8 = findViewById(R.id.btn8);
         btn9 = findViewById(R.id.btn9);
     }
-    public void Check(View LogicView){
+    public void Check(View LogicView) {
         Button currentBtn = (Button) LogicView;
-        count++;
-        if (flag==0){
-            currentBtn.setText("X");
-            flag=1;
-        }
-        else {
-            currentBtn.setText("O");
-            flag=0;
-        }
-        if (count>4){
-            b1 = btn1.getText().toString();
-            b2 = btn2.getText().toString();
-            b3 = btn3.getText().toString();
-            b4 = btn4.getText().toString();
-            b5 = btn5.getText().toString();
-            b6 = btn6.getText().toString();
-            b7 = btn7.getText().toString();
-            b8 = btn8.getText().toString();
-            b9 = btn9.getText().toString();
+        if (currentBtn.getText().toString().equals("")) {
+            count++;
+            if (flag == 0) {
+                currentBtn.setText("X");
+                flag = 1;
+            } else {
+                currentBtn.setText("O");
+                flag = 0;
+            }
+            if (count > 4) {
+                b1 = btn1.getText().toString();
+                b2 = btn2.getText().toString();
+                b3 = btn3.getText().toString();
+                b4 = btn4.getText().toString();
+                b5 = btn5.getText().toString();
+                b6 = btn6.getText().toString();
+                b7 = btn7.getText().toString();
+                b8 = btn8.getText().toString();
+                b9 = btn9.getText().toString();
 
-            // Conditions
-            if (b1.equals(b2) && b2.equals(b3) && !b1.equals("")){      //1st Conditions
-                Toast.makeText(this, "Winner is: "+b1, Toast.LENGTH_SHORT).show();
-            }
-            else if (b4.equals(b5) && b5.equals(b6) && !b4.equals("")){     //2nd Conditions
-                Toast.makeText(this, "Winner is: "+b4, Toast.LENGTH_SHORT).show();
-            }
-            else if (b7.equals(b8) && b8.equals(b9) && !b7.equals("")){     //3rd Conditions
-                Toast.makeText(this, "Winner is: "+b7, Toast.LENGTH_SHORT).show();
-            }
-            else if (b1.equals(b4) && b4.equals(b7) && !b1.equals("")){     //4th Conditions
-                Toast.makeText(this, "Winner is: "+b1, Toast.LENGTH_SHORT).show();
-            }
-            else if (b2.equals(b5) && b5.equals(b8) && !b2.equals("")){     //5th Conditions
-                Toast.makeText(this, "Winner is: "+b2, Toast.LENGTH_SHORT).show();
-            }
-            else if (b3.equals(b6) && b6.equals(b9) && !b3.equals("")){     //6th Conditions
-                Toast.makeText(this, "Winner is: "+b3, Toast.LENGTH_SHORT).show();
-            }
-            else if (b1.equals(b5) && b5.equals(b9) && !b1.equals("")){     //7th Conditions
-                Toast.makeText(this, "Winner is: "+b1, Toast.LENGTH_SHORT).show();
-            }
-            else if (b3.equals(b5) && b5.equals(b7) && !b3.equals("")){     //8th Conditions
-                Toast.makeText(this, "Winner is: "+b3, Toast.LENGTH_SHORT).show();
+                // Conditions
+                if (b1.equals(b2) && b2.equals(b3) && !b1.equals("")) {      //1st Conditions
+                    Toast.makeText(this, "Winner is: " + b1, Toast.LENGTH_SHORT).show();
+                } else if (b4.equals(b5) && b5.equals(b6) && !b4.equals("")) {     //2nd Conditions
+                    Toast.makeText(this, "Winner is: " + b4, Toast.LENGTH_SHORT).show();
+                } else if (b7.equals(b8) && b8.equals(b9) && !b7.equals("")) {     //3rd Conditions
+                    Toast.makeText(this, "Winner is: " + b7, Toast.LENGTH_SHORT).show();
+                } else if (b1.equals(b4) && b4.equals(b7) && !b1.equals("")) {     //4th Conditions
+                    Toast.makeText(this, "Winner is: " + b1, Toast.LENGTH_SHORT).show();
+                } else if (b2.equals(b5) && b5.equals(b8) && !b2.equals("")) {     //5th Conditions
+                    Toast.makeText(this, "Winner is: " + b2, Toast.LENGTH_SHORT).show();
+                } else if (b3.equals(b6) && b6.equals(b9) && !b3.equals("")) {     //6th Conditions
+                    Toast.makeText(this, "Winner is: " + b3, Toast.LENGTH_SHORT).show();
+                } else if (b1.equals(b5) && b5.equals(b9) && !b1.equals("")) {     //7th Conditions
+                    Toast.makeText(this, "Winner is: " + b1, Toast.LENGTH_SHORT).show();
+                } else if (b3.equals(b5) && b5.equals(b7) && !b3.equals("")) {     //8th Conditions
+                    Toast.makeText(this, "Winner is: " + b3, Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
