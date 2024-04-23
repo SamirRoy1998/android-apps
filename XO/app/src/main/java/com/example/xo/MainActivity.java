@@ -64,110 +64,43 @@ public class MainActivity extends AppCompatActivity {
                 // Conditions
                 if (b1.equals(b2) && b2.equals(b3) && !b1.equals("")) {      //1st Conditions
                     Toast.makeText(this, "Winner is: " + b1, Toast.LENGTH_SHORT).show();
-                    btn1.setText("");
-                    btn2.setText("");
-                    btn3.setText("");
-                    btn4.setText("");
-                    btn5.setText("");
-                    btn6.setText("");
-                    btn7.setText("");
-                    btn8.setText("");
-                    btn9.setText("");
-                    count=0;
-                    flag=0;
+                    NewGame();
                 } else if (b4.equals(b5) && b5.equals(b6) && !b4.equals("")) {     //2nd Conditions
                     Toast.makeText(this, "Winner is: " + b4, Toast.LENGTH_SHORT).show();
-                    btn1.setText("");
-                    btn2.setText("");
-                    btn3.setText("");
-                    btn4.setText("");
-                    btn5.setText("");
-                    btn6.setText("");
-                    btn7.setText("");
-                    btn8.setText("");
-                    btn9.setText("");
-                    count=0;
-                    flag=0;
+                    NewGame();
                 } else if (b7.equals(b8) && b8.equals(b9) && !b7.equals("")) {     //3rd Conditions
                     Toast.makeText(this, "Winner is: " + b7, Toast.LENGTH_SHORT).show();
-                    btn1.setText("");
-                    btn2.setText("");
-                    btn3.setText("");
-                    btn4.setText("");
-                    btn5.setText("");
-                    btn6.setText("");
-                    btn7.setText("");
-                    btn8.setText("");
-                    btn9.setText("");
-                    count=0;
-                    flag=0;
+                    NewGame();
                 } else if (b1.equals(b4) && b4.equals(b7) && !b1.equals("")) {     //4th Conditions
                     Toast.makeText(this, "Winner is: " + b1, Toast.LENGTH_SHORT).show();
-                    btn1.setText("");
-                    btn2.setText("");
-                    btn3.setText("");
-                    btn4.setText("");
-                    btn5.setText("");
-                    btn6.setText("");
-                    btn7.setText("");
-                    btn8.setText("");
-                    btn9.setText("");
-                    count=0;
-                    flag=0;
+                    NewGame();
                 } else if (b2.equals(b5) && b5.equals(b8) && !b2.equals("")) {     //5th Conditions
                     Toast.makeText(this, "Winner is: " + b2, Toast.LENGTH_SHORT).show();
-                    btn1.setText("");
-                    btn2.setText("");
-                    btn3.setText("");
-                    btn4.setText("");
-                    btn5.setText("");
-                    btn6.setText("");
-                    btn7.setText("");
-                    btn8.setText("");
-                    btn9.setText("");
-                    count=0;
-                    flag=0;
+                    NewGame();
                 } else if (b3.equals(b6) && b6.equals(b9) && !b3.equals("")) {     //6th Conditions
                     Toast.makeText(this, "Winner is: " + b3, Toast.LENGTH_SHORT).show();
-                    btn1.setText("");
-                    btn2.setText("");
-                    btn3.setText("");
-                    btn4.setText("");
-                    btn5.setText("");
-                    btn6.setText("");
-                    btn7.setText("");
-                    btn8.setText("");
-                    btn9.setText("");
-                    count=0;
-                    flag=0;
+                    NewGame();
                 } else if (b1.equals(b5) && b5.equals(b9) && !b1.equals("")) {     //7th Conditions
                     Toast.makeText(this, "Winner is: " + b1, Toast.LENGTH_SHORT).show();
-                    btn1.setText("");
-                    btn2.setText("");
-                    btn3.setText("");
-                    btn4.setText("");
-                    btn5.setText("");
-                    btn6.setText("");
-                    btn7.setText("");
-                    btn8.setText("");
-                    btn9.setText("");
-                    count=0;
-                    flag=0;
+                    NewGame();
                 } else if (b3.equals(b5) && b5.equals(b7) && !b3.equals("")) {     //8th Conditions
                     Toast.makeText(this, "Winner is: " + b3, Toast.LENGTH_SHORT).show();
-                    btn1.setText("");
-                    btn2.setText("");
-                    btn3.setText("");
-                    btn4.setText("");
-                    btn5.setText("");
-                    btn6.setText("");
-                    btn7.setText("");
-                    btn8.setText("");
-                    btn9.setText("");
-                    count=0;
-                    flag=0;
+                    NewGame();
                 }
             }
         }
+    }
+    public void NewGame(){
+        btn1.setText("");
+        btn2.setText("");
+        btn3.setText("");
+        btn4.setText("");
+        btn5.setText("");
+        btn6.setText("");
+        btn7.setText("");
+        btn8.setText("");
+        btn9.setText("");
+        count=0;
+        flag=0;
     }
 }
