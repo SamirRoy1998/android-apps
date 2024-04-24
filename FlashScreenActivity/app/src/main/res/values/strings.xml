@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Flash Screen Activity</string>
+    <string name="Loading">Loading Please Wait…</string>
+    <string name="Massage">Welcome to Flash Screen Activity</string>
+</resources>
