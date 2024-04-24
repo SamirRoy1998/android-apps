@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent iNext;                                                               //3rd make Intent variable to perform activity
         iNext=new Intent(MainActivity.this, SecondActivity.class);    //4th write instruct for intent's variable what to do
+        iNext.putExtra("Name","Samir Roy");                             //7th create key and store data to-execute in another activity
+        iNext.putExtra("Age",26);
         btnNext.setOnClickListener(new View.OnClickListener() {                     //5th set button on click listener
             @Override
             public void onClick(View v) {
