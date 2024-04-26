@@ -93,27 +93,27 @@ public class MainActivity extends AppCompatActivity {
 
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
 
-        arrLanguages.add("Hindi");
-        arrLanguages.add("English");
-        arrLanguages.add("Bengali");
-        arrLanguages.add("Marathi");
-        arrLanguages.add("Gujrati");
-        arrLanguages.add("Nepali");
-        arrLanguages.add("Assamese");
-        arrLanguages.add("Boro");
-        arrLanguages.add("Manipuri");
-        arrLanguages.add("Khasi");
-        arrLanguages.add("Mizo");
-        arrLanguages.add("Odia");
-        arrLanguages.add("Telegu");
-        arrLanguages.add("Kannada");
-        arrLanguages.add("Punjabi");
-        arrLanguages.add("Tamil");
-        arrLanguages.add("Kashmiri");
-        arrLanguages.add("Malayalam");
+        arrLanguages.add("Hindi Language");
+        arrLanguages.add("English Language");
+        arrLanguages.add("Bengali Language");
+        arrLanguages.add("Marathi Language");
+        arrLanguages.add("Gujrati Language");
+        arrLanguages.add("Nepali Language");
+        arrLanguages.add("Assamese Language");
+        arrLanguages.add("Boro Language");
+        arrLanguages.add("Manipuri Language");
+        arrLanguages.add("Khasi Language");
+        arrLanguages.add("Mizo Language");
+        arrLanguages.add("Odia Language");
+        arrLanguages.add("Telegu Language");
+        arrLanguages.add("Kannada Language");
+        arrLanguages.add("Punjabi Language");
+        arrLanguages.add("Tamil Language");
+        arrLanguages.add("Kashmiri Language");
+        arrLanguages.add("Malayalam Language");
 
         ArrayAdapter<String> acTxtVwAdapter= new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,arrLanguages);
         autoCompleteTextView.setAdapter(acTxtVwAdapter);
-        autoCompleteTextView.setThreshold(1);
+        autoCompleteTextView.setThreshold(3);
     }
 }
