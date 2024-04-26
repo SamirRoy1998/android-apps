@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">List Example</string>
+    <string name="SpinnerTextView">Select Your Id</string>
 </resources>
