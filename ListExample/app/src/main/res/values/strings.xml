@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">List Example</string>
-    <string name="SpinnerTextView">Select Your Id</string>
+    <string name="Spinner_Heading">Select Your Id</string>
+    <string name="AutoCompleteTextView_Hint">Search here</string>
 </resources>
