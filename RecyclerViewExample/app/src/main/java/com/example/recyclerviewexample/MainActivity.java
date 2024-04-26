@@ -48,5 +48,7 @@ ArrayList<ContactModel> arrContacts = new ArrayList<>();
         arrContacts.add(new ContactModel(R.drawable.i, "Sunita","0123456789"));
         arrContacts.add(new ContactModel(R.drawable.j, "Miya","0123456789"));
 
+        RecyclerContactAdapter adapter = new RecyclerContactAdapter(this, arrContacts);
+        recyclerView.setAdapter(adapter);
     }
 }
