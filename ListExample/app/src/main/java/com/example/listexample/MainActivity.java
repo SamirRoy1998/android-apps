@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,7 +19,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ListView listview;
-    ArrayList<String> arrName = new ArrayList<>();
+    ArrayList<String> arrNames = new ArrayList<>();
+
+    Spinner spinner;
+    ArrayList<String> arrIds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,35 +34,35 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         listview = findViewById(R.id.listview);
 
-        arrName.add("Samir");
-        arrName.add("Ram");
-        arrName.add("Rahim");
-        arrName.add("Ranjan");
-        arrName.add("Abhi");
-        arrName.add("Abhijit");
-        arrName.add("Rahul");
-        arrName.add("Rupa");
-        arrName.add("Sonali");
-        arrName.add("Gita");
-        arrName.add("Sunita");
-        arrName.add("Susmita");
-        arrName.add("Mitali");
-        arrName.add("Rawnok");
-        arrName.add("Vikash");
-        arrName.add("Sanjay");
-        arrName.add("Subham");
-        arrName.add("Subhamoy");
-        arrName.add("Riki");
-        arrName.add("Souvik");
-        arrName.add("Prosenjit");
-        arrName.add("Subash");
-        arrName.add("Shipra");
+        arrNames.add("Samir");
+        arrNames.add("Ram");
+        arrNames.add("Rahim");
+        arrNames.add("Ranjan");
+        arrNames.add("Abhi");
+        arrNames.add("Abhijit");
+        arrNames.add("Rahul");
+        arrNames.add("Rupa");
+        arrNames.add("Sonali");
+        arrNames.add("Gita");
+        arrNames.add("Sunita");
+        arrNames.add("Susmita");
+        arrNames.add("Mitali");
+        arrNames.add("Rawnok");
+        arrNames.add("Vikash");
+        arrNames.add("Sanjay");
+        arrNames.add("Subham");
+        arrNames.add("Subhamoy");
+        arrNames.add("Riki");
+        arrNames.add("Souvik");
+        arrNames.add("Prosenjit");
+        arrNames.add("Subash");
+        arrNames.add("Shipra");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, arrName);
-
-        listview.setAdapter(adapter);
+        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, arrNames);
+        listview.setAdapter(listViewAdapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -71,5 +75,16 @@ public class MainActivity extends AppCompatActivity {
               }
             }
         });
+
+        spinner = findViewById(R.id.spinner);
+
+        arrIds.add("Aadhar card");
+        arrIds.add("Voter card");
+        arrIds.add("Pan card");
+        arrIds.add("Driving License");
+        arrIds.add("Bank Passbook");
+
+        ArrayAdapter<String> spinnerAdapter= new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,arrIds);
+        spinner.setAdapter(spinnerAdapter);
     }
 }

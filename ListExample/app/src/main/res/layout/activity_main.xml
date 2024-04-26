@@ -11,7 +11,8 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listview"/>
+        android:id="@+id/listview"
+        android:visibility="gone"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,13 +22,16 @@
             android:layout_height="match_parent"
             android:text="@string/SpinnerTextView"
             android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="20dp"/>
-
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:layout_marginBottom="5dp"
             android:minHeight="48dp" />
     </LinearLayout>
