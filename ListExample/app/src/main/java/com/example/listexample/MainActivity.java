@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner spinner;
     ArrayList<String> arrIds = new ArrayList<>();
+
+    AutoCompleteTextView autoCompleteTextView;
+    ArrayList<String> arrLanguages = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,5 +90,29 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> spinnerAdapter= new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,arrIds);
         spinner.setAdapter(spinnerAdapter);
+
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+
+        arrLanguages.add("Hindi");
+        arrLanguages.add("English");
+        arrLanguages.add("Bengali");
+        arrLanguages.add("Marathi");
+        arrLanguages.add("Gujrati");
+        arrLanguages.add("Nepali");
+        arrLanguages.add("Assamese");
+        arrLanguages.add("Boro");
+        arrLanguages.add("Manipuri");
+        arrLanguages.add("Khasi");
+        arrLanguages.add("Mizo");
+        arrLanguages.add("Odia");
+        arrLanguages.add("Telegu");
+        arrLanguages.add("Kannada");
+        arrLanguages.add("Punjabi");
+        arrLanguages.add("Tamil");
+        arrLanguages.add("Kashmiri");
+        arrLanguages.add("Malayalam");
+
+        ArrayAdapter<String> acTxtVwAdapter= new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,arrLanguages);
+        autoCompleteTextView.setAdapter(acTxtVwAdapter);
     }
 }
