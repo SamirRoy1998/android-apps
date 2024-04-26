@@ -114,5 +114,6 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> acTxtVwAdapter= new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,arrLanguages);
         autoCompleteTextView.setAdapter(acTxtVwAdapter);
+        autoCompleteTextView.setThreshold(1);
     }
 }
