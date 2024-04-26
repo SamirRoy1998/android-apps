@@ -10,8 +10,10 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class MainActivity extends AppCompatActivity {
+ArrayList<ContactModel> arrContacts = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,5 +26,27 @@ public class MainActivity extends AppCompatActivity {
         });
         RecyclerView recyclerView=findViewById(R.id.recyclerContact);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        arrContacts.add(new ContactModel(R.drawable.a, "Ram","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.b, "Sham","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.c, "Jodu","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.d, "Modhu","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.e, "Hori","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.f, "Ramen","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.g, "Rakesh","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.h, "Gita","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.i, "Sunita","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.j, "Miya","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.a, "Ram","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.b, "Sham","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.c, "Jodu","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.d, "Modhu","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.e, "Hori","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.f, "Ramen","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.g, "Rakesh","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.h, "Gita","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.i, "Sunita","0123456789"));
+        arrContacts.add(new ContactModel(R.drawable.j, "Miya","0123456789"));
+
     }
 }
