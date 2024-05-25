@@ -2,4 +2,5 @@
     <string name="app_name">Dice Roller</string>
     <string name="Txt_Roll">Press Roll Button</string>
     <string name="Btn_Roll">Roll</string>
+    <string name="ImgVw_Dice">Dice</string>
 </resources>

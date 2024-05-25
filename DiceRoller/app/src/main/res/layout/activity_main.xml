@@ -8,14 +8,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/Txt_Roll"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ImgVw_Dice"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/Txt_Roll"
-        android:textAlignment="center"
-        android:textSize="25sp" />
+        android:contentDescription="@string/ImgVw_Dice"
+        android:src="@drawable/dice_1" />
 
     <Button
         android:id="@+id/Btn_Roll"
