@@ -24,21 +24,23 @@ class MainActivity : AppCompatActivity() {
         }
         val submit = findViewById<Button>(R.id.btn_submit)
         submit.setOnClickListener {
-            submit.setSuggestion(this)
+            setSuggestion()
         }
     }
-}
 
-private fun Button.setSuggestion(activity: AppCompatActivity) {
-    val heading = activity.findViewById<TextView>(R.id.txt_main_suggestion_heading)
-    val editText = activity.findViewById<EditText>(R.id.editText)
-    val suggestion = activity.findViewById<TextView>(R.id.txt_main_suggestion)
-    suggestion.text = editText.text
-    editText.visibility = View.GONE
-    this.visibility = View.GONE
-    suggestion.visibility = View.VISIBLE
-    heading.text ="Your suggestion posted"
+    private fun setSuggestion() {
+        val heading = findViewById<TextView>(R.id.txt_main_suggestion_heading)
+        val editText = findViewById<EditText>(R.id.editText)
+        val suggestion = findViewById<TextView>(R.id.txt_main_suggestion)
+        suggestion.text = editText.text
+        editText.visibility = View.GONE
+        findViewById<Button>(R.id.btn_submit).visibility = View.GONE
+        suggestion.visibility = View.VISIBLE
+        val newHeading = "Your suggestion posted"
+        heading.text = newHeading
 
-    val inputMethodManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    inputMethodManager.hideSoftInputFromWindow(editText.windowToken, 0)
+        val inputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(editText.windowToken, 0)
+    }
 }
