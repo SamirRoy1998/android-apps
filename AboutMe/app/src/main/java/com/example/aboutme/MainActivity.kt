@@ -1,6 +1,12 @@
 package com.example.aboutme
 
+import android.content.Context
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +22,23 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val submit = findViewById<Button>(R.id.btn_submit)
+        submit.setOnClickListener {
+            submit.setSuggestion(this)
+        }
     }
+}
+
+private fun Button.setSuggestion(activity: AppCompatActivity) {
+    val heading = activity.findViewById<TextView>(R.id.txt_main_suggestion_heading)
+    val editText = activity.findViewById<EditText>(R.id.editText)
+    val suggestion = activity.findViewById<TextView>(R.id.txt_main_suggestion)
+    suggestion.text = editText.text
+    editText.visibility = View.GONE
+    this.visibility = View.GONE
+    suggestion.visibility = View.VISIBLE
+    heading.text ="Your suggestion posted"
+
+    val inputMethodManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(editText.windowToken, 0)
 }
