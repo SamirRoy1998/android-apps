@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
 //            setSuggestion()
 //        }
         binding.btnSubmit.setOnClickListener {
-            setSuggestionWithDataBinding()
+//            setSuggestionWithDataBinding()
+            newSetSuggestionWithDataBinding()
         }
     }
 
@@ -63,5 +64,20 @@ class MainActivity : AppCompatActivity() {
         val inputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(binding.editText.windowToken, 0)
+    }
+
+    private fun newSetSuggestionWithDataBinding() {
+        binding.apply {
+            txtMainSuggestion.text = editText.text
+            editText.visibility = View.GONE
+            btnSubmit.visibility = View.GONE
+            txtMainSuggestion.visibility = View.VISIBLE
+            val newHeading = "Your suggestion posted"
+            txtMainSuggestionHeading.text = newHeading
+
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(editText.windowToken, 0)
+        }
     }
 }
