@@ -27,9 +27,12 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val submit = findViewById<Button>(R.id.btn_submit)
-        submit.setOnClickListener {
-            setSuggestion()
+//        val submit = findViewById<Button>(R.id.btn_submit)
+//        submit.setOnClickListener {
+//            setSuggestion()
+//        }
+        binding.btnSubmit.setOnClickListener {
+            setSuggestionWithDataBinding()
         }
     }
 
