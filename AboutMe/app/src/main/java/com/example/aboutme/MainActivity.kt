@@ -48,4 +48,17 @@ class MainActivity : AppCompatActivity() {
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(editText.windowToken, 0)
     }
+
+    private fun setSuggestionWithDataBinding() {
+        binding.txtMainSuggestion.text = binding.editText.text
+        binding.editText.visibility = View.GONE
+        binding.btnSubmit.visibility = View.GONE
+        binding.txtMainSuggestion.visibility = View.VISIBLE
+        val newHeading = "Your suggestion posted"
+        binding.txtMainSuggestionHeading.text = newHeading
+
+        val inputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(binding.editText.windowToken, 0)
+    }
 }
