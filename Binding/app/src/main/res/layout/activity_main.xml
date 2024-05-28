@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Fill up the form"
+            android:text="@={autoText.heading}"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,13 +41,14 @@
         <TextView
             android:id="@+id/txtNameHeading"
             style="@style/txtHeading"
-            android:text="Name: "
+            android:text="@={nameField.nameHeading}"
             app:layout_constraintStart_toStartOf="@+id/txtHeading"
             app:layout_constraintTop_toBottomOf="@+id/txtHeading" />
 
         <TextView
             android:id="@+id/txtName"
             style="@style/textFormat"
+            android:text="@={nameField.userName}"
             app:layout_constraintStart_toEndOf="@+id/txtNameHeading"
             app:layout_constraintTop_toBottomOf="@+id/txtHeading"
             android:visibility="gone"/>
@@ -66,13 +67,14 @@
         <TextView
             android:id="@+id/txtAgeHeading"
             style="@style/txtHeading"
-            android:text="Age: "
+            android:text="@={ageField.ageHeading}"
             app:layout_constraintStart_toStartOf="@+id/txtNameHeading"
             app:layout_constraintTop_toBottomOf="@+id/txtNameHeading" />
 
         <TextView
             android:id="@+id/txtAge"
             style="@style/textFormat"
+            android:text="@={ageField.userAge}"
             app:layout_constraintStart_toEndOf="@+id/txtAgeHeading"
             app:layout_constraintTop_toBottomOf="@+id/txtNameHeading"
             android:visibility="gone"/>
@@ -91,7 +93,7 @@
         <TextView
             android:id="@+id/txtAddressHeading"
             style="@style/txtHeading"
-            android:text="Address: "
+            android:text="@={addressField.addressHeading}"
             app:layout_constraintStart_toStartOf="@+id/txtAgeHeading"
             app:layout_constraintTop_toBottomOf="@+id/txtAgeHeading" />
 
@@ -110,6 +112,7 @@
                 <TextView
                     android:id="@+id/txtAddress"
                     style="@style/textFormat"
+                    android:text="@={addressField.userAddress}"
                     android:layout_width="290dp"
                     android:visibility="gone"/>
             </LinearLayout>
@@ -130,13 +133,14 @@
         <TextView
             android:id="@+id/txtPhoneNumberHeading"
             style="@style/txtHeading"
-            android:text="Phone Number: "
+            android:text="@={phoneNumberField.phoneNumberHeading}"
             app:layout_constraintStart_toStartOf="@+id/txtAddressHeading"
             app:layout_constraintTop_toBottomOf="@+id/scrollView" />
 
         <TextView
             android:id="@+id/txtPhoneNumber"
             style="@style/textFormat"
+            android:text="@={phoneNumberField.userPhoneNumber}"
             app:layout_constraintStart_toEndOf="@+id/txtPhoneNumberHeading"
             app:layout_constraintTop_toBottomOf="@+id/scrollView"
             android:visibility="gone"/>
@@ -157,7 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="Submit"
+            android:text="@={autoText.buttonName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/txtHeading" />
 
