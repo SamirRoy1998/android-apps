@@ -15,6 +15,9 @@
         <variable
             name="phoneNumberField"
             type="com.example.binding.PhoneNumber" />
+        <variable
+            name="autoText"
+            type="com.example.binding.Text" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
