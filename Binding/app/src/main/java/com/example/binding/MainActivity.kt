@@ -20,13 +20,8 @@ class MainActivity : AppCompatActivity() {
     private var add = Address("Address: ")
     private var ph = PhoneNumber("Phone Number: ")
     private var txt = Text(
-        buttonName = "Submit",
         heading = "Fill up the form",
-        editNumberHint = "Enter your phone number",
-        editNameHint = "Enter your full name",
-        editAgeHint = "Enter your age",
-        editAddressHint = "Enter your full address"
-    )
+        buttonName = "Submit",)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
