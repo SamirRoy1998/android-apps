@@ -16,10 +16,16 @@ import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val f = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-//        setContentView(R.layout.activity_main)
+
+        if (f) {
+            setContentView(R.layout.activity_main)
+        }
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -27,12 +33,19 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-//        val submit = findViewById<Button>(R.id.btn_submit)
-//        submit.setOnClickListener {
-//            setSuggestion()
-//        }
+
+        if (f) {
+            val submit = findViewById<Button>(R.id.btn_submit)
+            submit.setOnClickListener {
+                setSuggestion()
+            }
+        }
+
         binding.btnSubmit.setOnClickListener {
-//            setSuggestionWithDataBinding()
+            if (f) {
+                setSuggestionWithDataBinding()
+            }
+
             newSetSuggestionWithDataBinding()
         }
     }
