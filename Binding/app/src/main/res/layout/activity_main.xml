@@ -36,7 +36,7 @@
             android:visibility="gone"/>
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/editName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="8"
@@ -61,7 +61,7 @@
             android:visibility="gone"/>
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/editAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="6"
@@ -100,7 +100,7 @@
 
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/editAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="8"
@@ -125,7 +125,7 @@
             android:visibility="gone"/>
 
         <EditText
-            android:id="@+id/editTextText5"
+            android:id="@+id/editPhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
