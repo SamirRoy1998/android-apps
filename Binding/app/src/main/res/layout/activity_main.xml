@@ -2,6 +2,20 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="nameField"
+            type="com.example.binding.Name" />
+        <variable
+            name="ageField"
+            type="com.example.binding.Age" />
+        <variable
+            name="addressField"
+            type="com.example.binding.Address" />
+        <variable
+            name="phoneNumberField"
+            type="com.example.binding.PhoneNumber" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
