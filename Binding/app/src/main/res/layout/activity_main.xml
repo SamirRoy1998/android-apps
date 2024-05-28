@@ -1,19 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Fill up the form"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtNameHeading"
+            style="@style/txtHeading"
+            android:text="Name: "
+            app:layout_constraintStart_toStartOf="@+id/txtHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtHeading" />
+
+        <TextView
+            android:id="@+id/txtName"
+            style="@style/textFormat"
+            app:layout_constraintStart_toEndOf="@+id/txtNameHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtHeading"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:hint="Enter your full name"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toEndOf="@+id/txtNameHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtHeading" />
+
+        <TextView
+            android:id="@+id/txtAgeHeading"
+            style="@style/txtHeading"
+            android:text="Age: "
+            app:layout_constraintStart_toStartOf="@+id/txtNameHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtNameHeading" />
+
+        <TextView
+            android:id="@+id/txtAge"
+            style="@style/textFormat"
+            app:layout_constraintStart_toEndOf="@+id/txtAgeHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtNameHeading"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/editTextText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:hint="Enter your age"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toEndOf="@+id/txtAgeHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtNameHeading" />
+
+        <TextView
+            android:id="@+id/txtAddressHeading"
+            style="@style/txtHeading"
+            android:text="Address: "
+            app:layout_constraintStart_toStartOf="@+id/txtAgeHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtAgeHeading" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toEndOf="@+id/txtAddressHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtAgeHeading">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtAddress"
+                    style="@style/textFormat"
+                    android:layout_width="290dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <EditText
+            android:id="@+id/editTextText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:hint="Enter your address"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toEndOf="@+id/txtAddressHeading"
+            app:layout_constraintTop_toBottomOf="@+id/txtAgeHeading" />
+
+        <TextView
+            android:id="@+id/txtPhoneNumberHeading"
+            style="@style/txtHeading"
+            android:text="Phone Number: "
+            app:layout_constraintStart_toStartOf="@+id/txtAddressHeading"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+
+        <TextView
+            android:id="@+id/txtPhoneNumber"
+            style="@style/textFormat"
+            app:layout_constraintStart_toEndOf="@+id/txtPhoneNumberHeading"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/editTextText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter your phone number"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toEndOf="@+id/txtPhoneNumberHeading"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtHeading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
