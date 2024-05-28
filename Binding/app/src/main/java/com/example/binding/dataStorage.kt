@@ -9,6 +9,6 @@ class Text(
     var buttonName: String = "",
     var editNameHint: String = "",
     var editAgeHint: String = "",
-    var editAddressHint: String = "Enter your address",
+    var editAddressHint: String = "",
     var editNumberHint: String = ""
 )
