@@ -15,6 +15,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val f = false
 
+    private var n =Name("Name: ")
+    private var a :Age=Age("Age: ")
+    private var add =Address("Address: ")
+    private var ph = PhoneNumber("Phone Number: ")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.nameField = n
+        binding.ageField = a
+        binding.addressField = add
+        binding.phoneNumberField =ph
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
