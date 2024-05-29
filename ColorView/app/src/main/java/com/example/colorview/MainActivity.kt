@@ -77,11 +77,11 @@ class MainActivity : AppCompatActivity() {
             R.id.txtBox4 -> view.setBackgroundColor(Color.MAGENTA)
             R.id.txtBox5 -> view.setBackgroundColor(Color.GREEN)
             R.id.main -> view.setBackgroundColor(Color.DKGRAY)
-            R.id.btn1 -> binding.txtBox1.setBackgroundColor(Color.YELLOW)
-            R.id.btn2 -> binding.txtBox2.setBackgroundColor(Color.GREEN)
-            R.id.btn3 -> binding.txtBox3.setBackgroundColor(Color.RED)
-            R.id.btn4 -> binding.txtBox4.setBackgroundColor(Color.BLUE)
-            R.id.btn5 -> binding.txtBox5.setBackgroundColor(Color.MAGENTA)
+            R.id.btn1 -> binding.txtBox1.setBackgroundResource(android.R.color.holo_orange_light)
+            R.id.btn2 -> binding.txtBox2.setBackgroundResource(android.R.color.holo_green_light)
+            R.id.btn3 -> binding.txtBox3.setBackgroundResource(android.R.color.holo_red_light)
+            R.id.btn4 -> binding.txtBox4.setBackgroundResource(android.R.color.holo_blue_bright)
+            R.id.btn5 -> binding.txtBox5.setBackgroundResource(android.R.color.holo_purple)
         }
     }
 }
