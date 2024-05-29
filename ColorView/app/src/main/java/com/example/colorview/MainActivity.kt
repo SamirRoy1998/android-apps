@@ -29,20 +29,22 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         setListeners()
-        binding.btn1.setOnClickListener {
-            binding.txtBox1.setBackgroundColor(Color.YELLOW)
-        }
-        binding.btn2.setOnClickListener {
-            binding.txtBox2.setBackgroundColor(Color.GREEN)
-        }
-        binding.btn3.setOnClickListener {
-            binding.txtBox3.setBackgroundColor(Color.RED)
-        }
-        binding.btn4.setOnClickListener {
-            binding.txtBox4.setBackgroundColor(Color.BLUE)
-        }
-        binding.btn5.setOnClickListener {
-            binding.txtBox5.setBackgroundColor(Color.MAGENTA)
+        if (f) {
+            binding.btn1.setOnClickListener {
+                binding.txtBox1.setBackgroundColor(Color.YELLOW)
+            }
+            binding.btn2.setOnClickListener {
+                binding.txtBox2.setBackgroundColor(Color.GREEN)
+            }
+            binding.btn3.setOnClickListener {
+                binding.txtBox3.setBackgroundColor(Color.RED)
+            }
+            binding.btn4.setOnClickListener {
+                binding.txtBox4.setBackgroundColor(Color.BLUE)
+            }
+            binding.btn5.setOnClickListener {
+                binding.txtBox5.setBackgroundColor(Color.MAGENTA)
+            }
         }
     }
 
@@ -53,7 +55,12 @@ class MainActivity : AppCompatActivity() {
             binding.txtBox3,
             binding.txtBox4,
             binding.txtBox5,
-            binding.main
+            binding.main,
+            binding.btn1,
+            binding.btn2,
+            binding.btn3,
+            binding.btn4,
+            binding.btn5
         )
         for (item in clickableView) {
             item.setOnClickListener {
@@ -70,6 +77,11 @@ class MainActivity : AppCompatActivity() {
             R.id.txtBox4 -> view.setBackgroundColor(Color.MAGENTA)
             R.id.txtBox5 -> view.setBackgroundColor(Color.GREEN)
             R.id.main -> view.setBackgroundColor(Color.DKGRAY)
+            R.id.btn1 -> binding.txtBox1.setBackgroundColor(Color.YELLOW)
+            R.id.btn2 -> binding.txtBox2.setBackgroundColor(Color.GREEN)
+            R.id.btn3 -> binding.txtBox3.setBackgroundColor(Color.RED)
+            R.id.btn4 -> binding.txtBox4.setBackgroundColor(Color.BLUE)
+            R.id.btn5 -> binding.txtBox5.setBackgroundColor(Color.MAGENTA)
         }
     }
 }
