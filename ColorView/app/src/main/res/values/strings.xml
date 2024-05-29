@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Color View</string>
+    <string name="txtBox1">Yellow</string>
+    <string name="txtBox2">Green</string>
+    <string name="txtBox3">Red</string>
+    <string name="txtBox4">Sky Blue</string>
+    <string name="txtBox5">Purple</string>
+    <string name="howToPlay">Touch the Screen to Highlight the Boxs\nTouch the Box to change box color\n press buttons to get box actual color</string>
 </resources>
