@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             GreatingCardTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "Samir",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
