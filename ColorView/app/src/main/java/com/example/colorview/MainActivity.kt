@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             R.id.btn2 -> binding.txtBox2.setBackgroundResource(android.R.color.holo_green_light)
             R.id.btn3 -> binding.txtBox3.setBackgroundResource(android.R.color.holo_red_light)
             R.id.btn4 -> binding.txtBox4.setBackgroundResource(android.R.color.holo_blue_bright)
-            R.id.btn5 -> binding.txtBox5.setBackgroundResource(android.R.color.holo_purple)
+            R.id.btn5 -> binding.txtBox5.setBackgroundResource(R.color.Purple)
         }
     }
 }
