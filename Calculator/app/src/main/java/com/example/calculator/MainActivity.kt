@@ -1,6 +1,8 @@
 package com.example.calculator
 
+import android.content.Context
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             setContentView(R.layout.activity_main)
         }
 
-        binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -33,11 +35,38 @@ class MainActivity : AppCompatActivity() {
         binding.btnClear.setOnClickListener {
             clearResult()
         }
+
+        binding.btnAddition.setOnClickListener {
+            addition()
+        }
     }
 
     private fun clearResult() {
-        val result = "Result: "
-        binding.txtResult.text =result
-        Toast.makeText(this,"Result Cleared",Toast.LENGTH_SHORT).show()
+        val key = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        key.hideSoftInputFromWindow(binding.etInputX.windowToken, 0)
+        key.hideSoftInputFromWindow(binding.etInputY.windowToken, 0)
+
+        val result = "Result : "
+        binding.txtResult.text = result
+        Toast.makeText(this, "Result Cleared", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun addition() {
+        val key = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        key.hideSoftInputFromWindow(binding.etInputX.windowToken, 0)
+        key.hideSoftInputFromWindow(binding.etInputY.windowToken, 0)
+
+        try {
+            val x = binding.etInputX.text.toString()
+            val y = binding.etInputY.text.toString()
+            val z = x.toDouble() + y.toDouble()
+            binding.txtResult.text = "Result : $z"
+        } catch (e: Exception) {
+            Toast.makeText(
+                this,
+                "Please fill-up the X and Y both inputs\nto get result",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 }
