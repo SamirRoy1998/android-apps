@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnAddition.setOnClickListener {
             addition()
         }
+
+        binding.btnSubtraction.setOnClickListener {
+            subtraction()
+        }
     }
 
     private fun clearResult() {
@@ -60,6 +64,25 @@ class MainActivity : AppCompatActivity() {
             val x = binding.etInputX.text.toString()
             val y = binding.etInputY.text.toString()
             val z = x.toDouble() + y.toDouble()
+            binding.txtResult.text = "Result : $z"
+        } catch (e: Exception) {
+            Toast.makeText(
+                this,
+                "Please fill-up the X and Y both inputs\nto get result",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun subtraction() {
+        val key = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        key.hideSoftInputFromWindow(binding.etInputX.windowToken, 0)
+        key.hideSoftInputFromWindow(binding.etInputY.windowToken, 0)
+
+        try {
+            val x = binding.etInputX.text.toString()
+            val y = binding.etInputY.text.toString()
+            val z = x.toDouble() - y.toDouble()
             binding.txtResult.text = "Result : $z"
         } catch (e: Exception) {
             Toast.makeText(
