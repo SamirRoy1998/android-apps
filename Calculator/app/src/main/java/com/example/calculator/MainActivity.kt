@@ -126,10 +126,14 @@ class MainActivity : AppCompatActivity() {
         key.hideSoftInputFromWindow(binding.etInputY.windowToken, 0)
 
         try {
-            val x =binding.etInputX.text.toString()
+            val x = binding.etInputX.text.toString()
             val y = binding.etInputY.text.toString()
             val z = x.toDouble() / y.toDouble()
-            binding.txtResult.text = "Result : $z"
+            if (x.toDouble() == 0.0 || y.toDouble() == 0.0) {
+                binding.txtResult.text = "Result : 0"
+            } else {
+                binding.txtResult.text = "Result : $z"
+            }
         } catch (e: Exception) {
             Toast.makeText(
                 this,
