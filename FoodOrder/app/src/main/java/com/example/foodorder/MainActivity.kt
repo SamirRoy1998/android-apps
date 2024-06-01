@@ -2,6 +2,7 @@ package com.example.foodorder
 
 import android.os.Bundle
 import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +33,36 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnOrder.setOnClickListener {
-            Toast.makeText(this, "App is running", Toast.LENGTH_SHORT).show()
+            try {
+                val checkedSize = binding.radioGroup3.checkedRadioButtonId
+                val size = findViewById<RadioButton>(checkedSize)
+
+                val checkedItem = binding.radioGroup2.checkedRadioButtonId
+                val item = findViewById<RadioButton>(checkedItem)
+
+                val mutton = binding.cbMutton.isChecked
+                val chicken = binding.cbChicken.isChecked
+                val egg = binding.cbEgg.isChecked
+                val paneer = binding.cbPaneer.isChecked
+                val onionRings = binding.cbOnionRings.isChecked
+                val mushroom = binding.cbMushroom.isChecked
+                val capsicum = binding.cbCapsicum.isChecked
+
+                val orderList = "Your ordered\n" +
+                        "A ${size.text} size ${item.text}" +
+                        if (mutton){ "\n• Mutton Pakoda"} else {""} +
+                        if (chicken){ "\n• Chicken Pakoda"} else {""} +
+                        if (egg){ "\n• Egg Bhurji"} else {""} +
+                        if (paneer){ "\n• Paneer"} else {""} +
+                        if (onionRings){ "\n• Onion Rings"} else {""} +
+                        if (mushroom){ "\n• Mushroom"} else {""} +
+                        if (capsicum){ "\n• Capsicum"} else {""}
+
+                binding.txtOrderDetails.text = orderList
+            }
+            catch (e: Exception) {
+                binding.txtOrderDetails.text = "Select Any Item\nAnd Size Too!!!"
+            }
         }
 
         hideNonVeg()
@@ -47,17 +77,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideNonVeg(): Boolean {
         binding.cbOnionRings.visibility = View.GONE
-        binding.cbEgg.visibility =View.GONE
-        binding.cbChicken.visibility =View.GONE
-        binding.cbMutton.visibility =View.GONE
+        binding.cbEgg.visibility = View.GONE
+        binding.cbChicken.visibility = View.GONE
+        binding.cbMutton.visibility = View.GONE
         return true
     }
 
     private fun showNonVeg(): Boolean {
         binding.cbOnionRings.visibility = View.VISIBLE
-        binding.cbEgg.visibility =View.VISIBLE
-        binding.cbChicken.visibility =View.VISIBLE
-        binding.cbMutton.visibility =View.VISIBLE
+        binding.cbEgg.visibility = View.VISIBLE
+        binding.cbChicken.visibility = View.VISIBLE
+        binding.cbMutton.visibility = View.VISIBLE
         return true
     }
 }
