@@ -80,6 +80,11 @@ class MainActivity : AppCompatActivity() {
         binding.cbEgg.visibility = View.GONE
         binding.cbChicken.visibility = View.GONE
         binding.cbMutton.visibility = View.GONE
+
+        binding.cbOnionRings.isChecked = false
+        binding.cbEgg.isChecked = false
+        binding.cbChicken.isChecked = false
+        binding.cbMutton.isChecked = false
         return true
     }
 
