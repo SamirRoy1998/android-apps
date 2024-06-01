@@ -3,7 +3,6 @@ package com.example.foodorder
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -50,17 +49,16 @@ class MainActivity : AppCompatActivity() {
 
                 val orderList = "Your ordered\n" +
                         "A ${size.text} size ${item.text}" +
-                        if (mutton){ "\n• Mutton Pakoda"} else {""} +
-                        if (chicken){ "\n• Chicken Pakoda"} else {""} +
-                        if (egg){ "\n• Egg Bhurji"} else {""} +
-                        if (paneer){ "\n• Paneer"} else {""} +
-                        if (onionRings){ "\n• Onion Rings"} else {""} +
-                        if (mushroom){ "\n• Mushroom"} else {""} +
-                        if (capsicum){ "\n• Capsicum"} else {""}
+                        (if (mutton) "\n• Mutton Pakoda" else "") +
+                        (if (chicken) "\n• Chicken Pakoda" else "") +
+                        (if (egg) "\n• Egg Bhurji" else "") +
+                        (if (paneer) "\n• Paneer" else "") +
+                        (if (onionRings) "\n• Onion Rings" else "") +
+                        (if (mushroom) "\n• Mushroom" else "") +
+                        (if (capsicum) "\n• Capsicum" else "")
 
                 binding.txtOrderDetails.text = orderList
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 binding.txtOrderDetails.text = "Select Any Item\nAnd Size Too!!!"
             }
         }
