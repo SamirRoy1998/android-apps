@@ -1,6 +1,7 @@
 package com.example.customtoast
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +33,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnNormal.setOnClickListener {
             Toast.makeText(this, "Its a Normal Toast!", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btnCustom.setOnClickListener {
+            Toast(this).apply {
+                duration = Toast.LENGTH_SHORT
+                view = layoutInflater.inflate(R.layout.custom_toast,findViewById(R.id.clCustomToast))
+                show()
+            }
         }
     }
 }
