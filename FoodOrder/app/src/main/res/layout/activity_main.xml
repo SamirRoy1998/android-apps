@@ -5,15 +5,216 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="20sp"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/txtHeading"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Please select your items"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHeading">
+
+        <RadioButton
+            android:id="@+id/rbR1Veg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:paddingRight="30dp"
+            android:text="Veg" />
+
+        <RadioButton
+            android:id="@+id/rbR1NonVeg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Non-Veg" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup1">
+
+        <RadioButton
+            android:id="@+id/rbR2Burger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:text="Burger" />
+
+        <RadioButton
+            android:id="@+id/rbR2Sandwich"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:text="Sandwich" />
+
+        <RadioButton
+            android:id="@+id/rbR2Pizza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:text="Pizza" />
+
+        <RadioButton
+            android:id="@+id/rbR2Roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="Roll" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Small" />
+
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/cbPaneer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paneer"
+        app:layout_constraintEnd_toStartOf="@+id/cbMushroom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+
+    <CheckBox
+        android:id="@+id/cbMushroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mushroom"
+        app:layout_constraintEnd_toStartOf="@+id/cbCapsicum"
+        app:layout_constraintStart_toEndOf="@+id/cbPaneer"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+
+    <CheckBox
+        android:id="@+id/cbCapsicum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capsicum"
+        app:layout_constraintStart_toEndOf="@+id/cbMushroom"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+
+    <CheckBox
+        android:id="@+id/cbOnionRings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Onion Rings"
+        app:layout_constraintEnd_toStartOf="@+id/cbEgg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbPaneer" />
+
+    <CheckBox
+        android:id="@+id/cbEgg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Egg Bhurji"
+        app:layout_constraintEnd_toStartOf="@+id/cbChicken"
+        app:layout_constraintStart_toEndOf="@+id/cbOnionRings"
+        app:layout_constraintTop_toBottomOf="@+id/cbMushroom" />
+
+    <CheckBox
+        android:id="@+id/cbChicken"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Chicken Pakoda"
+        app:layout_constraintEnd_toStartOf="@+id/cbMutton"
+        app:layout_constraintStart_toEndOf="@+id/cbEgg"
+        app:layout_constraintTop_toBottomOf="@+id/cbMushroom" />
+
+    <CheckBox
+        android:id="@+id/cbMutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Mutton Pakoda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cbChicken"
+        app:layout_constraintTop_toBottomOf="@+id/cbCapsicum" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/txtOrderHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Details"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtOrderHeading">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtOrderDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hurry! You ordered nothing"
+                android:textSize="25sp"
+                android:textAlignment="center"/>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
