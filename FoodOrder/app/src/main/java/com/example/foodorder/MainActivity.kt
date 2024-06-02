@@ -3,6 +3,7 @@ package com.example.foodorder
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -58,6 +59,14 @@ class MainActivity : AppCompatActivity() {
                         (if (capsicum) "\n• Capsicum" else "")
 
                 binding.txtOrderDetails.text = orderList
+                Toast(this).apply {
+                    duration = Toast.LENGTH_LONG
+                    view = layoutInflater.inflate(
+                        R.layout.activity_custom_toast_order_done,
+                        findViewById(R.id.clCustomToast)
+                    )
+                    show()
+                }
             } catch (e: Exception) {
                 binding.txtOrderDetails.text = "Select Any Item\nAnd Size Too!!!"
             }
