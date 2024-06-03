@@ -23,5 +23,11 @@ class ThirdActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnA3toA2).setOnClickListener {
             finish()
         }
+
+        findViewById<Button>(R.id.btnA3toA4).setOnClickListener {
+            Intent(this,ForthActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 }
