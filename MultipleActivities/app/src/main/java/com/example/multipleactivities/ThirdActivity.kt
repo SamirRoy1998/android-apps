@@ -14,14 +14,14 @@ class ThirdActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnA3toA1).setOnClickListener {
             Intent(this, MainActivity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(it)
+                finish()
             }
         }
 
         findViewById<Button>(R.id.btnA3toA2).setOnClickListener {
-            Intent(this, SecondActivity::class.java).also {
-                startActivity(it)
-            }
+            finish()
         }
     }
 }
