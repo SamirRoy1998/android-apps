@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MultipleActivities"
         tools:targetApi="31">
+        <activity
+            android:name=".ForthActivity"
+            android:exported="false" />
         <activity android:name=".ThirdActivity" />
         <activity android:name=".SecondActivity" />
         <activity
