@@ -13,9 +13,7 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         findViewById<Button>(R.id.btnA2toA1).setOnClickListener {
-            Intent(this, MainActivity::class.java).also {
-                startActivity(it)
-            }
+            finish()
         }
 
         findViewById<Button>(R.id.btnA2toA3).setOnClickListener {
