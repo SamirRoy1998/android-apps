@@ -18,9 +18,9 @@
 
         <ImageView
             android:id="@+id/ivPhoto"
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/btnChoosePhoto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
