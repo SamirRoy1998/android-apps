@@ -17,6 +17,15 @@
         android:layout_margin="15dp"
         tools:context=".SubmittedPageActivity">
 
+        <ImageView
+            android:id="@+id/ivUserPhoto"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtA2Heading" />
+
         <TextView
             android:id="@+id/txtA2Heading"
             android:layout_width="wrap_content"
@@ -42,11 +51,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtA2NameHeading"
-            app:layout_constraintTop_toBottomOf="@+id/txtA2Heading" />
+            app:layout_constraintBottom_toBottomOf="@+id/ivUserPhoto"
+            app:layout_constraintEnd_toStartOf="@+id/ivUserPhoto"
+            app:layout_constraintStart_toEndOf="@+id/txtA2NameHeading" />
 
         <TextView
             android:id="@+id/txtA2AddressHeading"
