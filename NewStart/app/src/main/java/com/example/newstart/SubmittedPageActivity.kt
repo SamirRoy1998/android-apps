@@ -1,5 +1,6 @@
 package com.example.newstart
 
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -28,12 +29,15 @@ class SubmittedPageActivity : AppCompatActivity() {
         val dateOfBirth = intent.getStringExtra("EXTRA_DATE_OF_BIRTH")
         val bloodGroup = intent.getStringExtra("EXTRA_BLOOD_GROUP")
         val phoneNumber = intent.getStringExtra("EXTRA_PHONE_NUMBER")
+        val image = intent.getStringExtra("EXTRA_IMAGE")
+        val imageUri = Uri.parse(image)
 
         binding.txtA2Name.text = firstName + " " + lastName
         binding.txtA2Address.text = address + ", " + country + " -" + pinCode.toString()
         binding.txtA2DateOfBirth.text = dateOfBirth
         binding.txtA2BloodGroup.text = bloodGroup
         binding.txtA2PhoneNumber.text = phoneNumber
+        binding.ivUserPhoto.setImageURI(imageUri)
 
         binding.btnA2Edit.setOnClickListener {
             finish()
