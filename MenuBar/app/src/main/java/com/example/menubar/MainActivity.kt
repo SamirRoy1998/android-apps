@@ -2,6 +2,8 @@ package com.example.menubar
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,4 +26,14 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.miAddContact -> Toast.makeText(this,"You Clicked On Add Contacts", Toast.LENGTH_SHORT).show()
+            R.id.miFavorites -> Toast.makeText(this,"You Clicked On Favorites", Toast.LENGTH_SHORT).show()
+            R.id.miSettings -> Toast.makeText(this,"You Clicked On Settings", Toast.LENGTH_SHORT).show()
+            R.id.miFeedBack -> Toast.makeText(this,"Write a Feedback", Toast.LENGTH_SHORT).show()
+            R.id.miCloseApp -> finish()
+        }
+        return true
+    }
 }
