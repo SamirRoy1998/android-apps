@@ -1,5 +1,6 @@
 package com.example.newstart
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
@@ -13,6 +14,14 @@ import com.example.newstart.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var firstName = ""
+    private var lastName = ""
+    private var address = ""
+    private var country = ""
+    private var pinCode = ""
+    private var dateOfBirth = ""
+    private var bloodGroup = ""
+    private var phoneNumber = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -47,14 +56,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSubmit.setOnClickListener {
-            val firstName = binding.etFirstName.text.toString()
-            val lastName = binding.etLastName.text.toString()
-            val address = binding.etAddress.text.toString()
-            val country = binding.etCountry.text.toString()
-            val pinCode = binding.etPinCode.text.toString()
-            val dateOfBirth = binding.etDateOfBirth.text.toString()
-            val bloodGroup = binding.etBloodGroup.text.toString()
-            val phoneNumber = binding.etContactNumber.text.toString()
+            firstName = binding.etFirstName.text.toString()
+            lastName = binding.etLastName.text.toString()
+            address = binding.etAddress.text.toString()
+            country = binding.etCountry.text.toString()
+            pinCode = binding.etPinCode.text.toString()
+            dateOfBirth = binding.etDateOfBirth.text.toString()
+            bloodGroup = binding.etBloodGroup.text.toString()
+            phoneNumber = binding.etContactNumber.text.toString()
 
             if (firstName.isBlank() || lastName.isBlank() || address.isBlank() || country.isBlank() ||
                 pinCode.isBlank() || dateOfBirth.isBlank() || bloodGroup.isBlank() || phoneNumber.isBlank()
@@ -64,19 +73,32 @@ class MainActivity : AppCompatActivity() {
             }
 
             try {
-                Intent(this, SubmittedPageActivity::class.java).also {
-                    it.putExtra("EXTRA_FIRST_NAME", firstName)
-                    it.putExtra("EXTRA_LAST_NAME", lastName)
-                    it.putExtra("EXTRA_ADDRESS", address)
-                    it.putExtra("EXTRA_COUNTRY", country)
-                    it.putExtra("EXTRA_PIN_CODE", pinCode)
-                    it.putExtra("EXTRA_DATE_OF_BIRTH", dateOfBirth)
-                    it.putExtra("EXTRA_BLOOD_GROUP", bloodGroup)
-                    it.putExtra("EXTRA_PHONE_NUMBER", phoneNumber)
-                    startActivity(it)
+                Intent(Intent.ACTION_GET_CONTENT).also {
+                    it.type = "image/*"
+
+                    startActivityForResult(it, 0)
                 }
             } catch (e: Exception) {
                 Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == 0) {
+            val imageUri = data?.data
+            Intent(this, SubmittedPageActivity::class.java).also {
+                it.putExtra("EXTRA_IMAGE", imageUri.toString())
+                it.putExtra("EXTRA_FIRST_NAME", firstName)
+                it.putExtra("EXTRA_LAST_NAME", lastName)
+                it.putExtra("EXTRA_ADDRESS", address)
+                it.putExtra("EXTRA_COUNTRY", country)
+                it.putExtra("EXTRA_PIN_CODE", pinCode)
+                it.putExtra("EXTRA_DATE_OF_BIRTH", dateOfBirth)
+                it.putExtra("EXTRA_BLOOD_GROUP", bloodGroup)
+                it.putExtra("EXTRA_PHONE_NUMBER", phoneNumber)
+                startActivity(it)
             }
         }
     }
