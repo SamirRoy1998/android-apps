@@ -30,6 +30,7 @@ class FifthActivity : AppCompatActivity() {
             Intent(this, ThirdActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(it)
+                finish()
             }
         }
 
@@ -37,6 +38,7 @@ class FifthActivity : AppCompatActivity() {
             Intent(this, SecondActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(it)
+                finish()
             }
         }
 
@@ -44,6 +46,7 @@ class FifthActivity : AppCompatActivity() {
             Intent(this, MainActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(it)
+                finish()
             }
         }
     }
