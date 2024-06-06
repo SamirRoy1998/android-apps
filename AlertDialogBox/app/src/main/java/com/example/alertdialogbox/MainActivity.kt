@@ -38,5 +38,24 @@ class MainActivity : AppCompatActivity() {
         binding.btnFirstDailog.setOnClickListener {
             addContactDialogBox.show()
         }
+
+        val option =
+            arrayOf("0th", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th")
+        val singleChoiceDialogBox = AlertDialog.Builder(this)
+            .setTitle("Choose one of this option")
+            .setSingleChoiceItems(option, 1) { _, i ->
+                Toast.makeText(this, "You clicked on ${option[i]}", Toast.LENGTH_SHORT).show()
+            }
+            .setPositiveButton("Accept") { _, _ ->
+                Toast.makeText(this, "Accepted", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("Decline") { _, _ ->
+                Toast.makeText(this, "Declined", Toast.LENGTH_SHORT).show()
+            }.create()
+
+        binding.btnSecondDailog.setOnClickListener {
+            singleChoiceDialogBox.show()
+        }
+
     }
 }
