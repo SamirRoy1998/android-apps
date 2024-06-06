@@ -40,22 +40,49 @@ class MainActivity : AppCompatActivity() {
         }
 
         val option =
-            arrayOf("0th", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th")
+            arrayOf("0th", "1st", "2nd", "3rd")
         val singleChoiceDialogBox = AlertDialog.Builder(this)
             .setTitle("Choose one of this option")
             .setSingleChoiceItems(option, 1) { _, i ->
                 Toast.makeText(this, "You clicked on ${option[i]}", Toast.LENGTH_SHORT).show()
             }
             .setPositiveButton("Accept") { _, _ ->
-                Toast.makeText(this, "Accepted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "You accepted single choice dialog", Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton("Decline") { _, _ ->
-                Toast.makeText(this, "Declined", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "You declined single choice dialog", Toast.LENGTH_SHORT).show()
             }.create()
 
         binding.btnSecondDailog.setOnClickListener {
             singleChoiceDialogBox.show()
         }
 
+        val multiChoiceDialogBox = AlertDialog.Builder(this)
+            .setTitle("Chose as you want")
+            .setMultiChoiceItems(
+                option,
+                booleanArrayOf(
+                    false,
+                    false,
+                    false,
+                    false
+                )
+            ) { _, i, isChecked ->
+                if (isChecked) {
+                    Toast.makeText(this, "You checked ${option[i]}", Toast.LENGTH_SHORT).show()
+                } else{
+                    Toast.makeText(this, "You unchecked ${option[i]}", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setPositiveButton("Done") { _, _ ->
+                Toast.makeText(this, "You accepted multi choice dialog", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("Cancel") { _, _ ->
+                Toast.makeText(this, "You canceled multi choice dialog", Toast.LENGTH_SHORT).show()
+            }.create()
+
+        binding.btnThirdDailog.setOnClickListener {
+            multiChoiceDialogBox.show()
+        }
     }
 }
