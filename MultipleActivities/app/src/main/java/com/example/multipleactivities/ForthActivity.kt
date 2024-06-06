@@ -20,7 +20,7 @@ class ForthActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_forth)
         binding.forthPage = this
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.clsForthActivity)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -43,6 +43,12 @@ class ForthActivity : AppCompatActivity() {
                 it.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                 startActivity(it)
                 finish()
+            }
+        }
+
+        binding.btnA4toA5.setOnClickListener {
+            Intent(this, FifthActivity::class.java).also {
+                startActivity(it)
             }
         }
     }
