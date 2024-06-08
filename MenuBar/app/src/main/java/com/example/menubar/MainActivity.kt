@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.miSettings -> Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show()
-            R.id.miAddContact -> Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show()
-            R.id.miSettings -> Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show()
-            R.id.miSettings -> Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show()
-            R.id.miSettings -> Toast.makeText(this,"Settings",Toast.LENGTH_SHORT).show()
+            R.id.miAddContact -> Toast.makeText(this,"Add Contact",Toast.LENGTH_SHORT).show()
+            R.id.miFavorites -> Toast.makeText(this,"Favorites",Toast.LENGTH_SHORT).show()
+            R.id.miFeedBack -> Toast.makeText(this,"Give FeedBack",Toast.LENGTH_SHORT).show()
+            R.id.miCloseApp -> finish()
         }
         return true
     }
