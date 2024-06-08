@@ -25,68 +25,29 @@ class MainActivity : AppCompatActivity() {
         val option = arrayOf("Page One", "Page Two", "Page Three", "Page Four", "Page Five", "Close App")
         val singleChoiceDialogBox = AlertDialog.Builder(this)
             .setTitle("Choose one of this option ")
-            .setSingleChoiceItems(option, 0) { _, _ ->
-            }
+            .setSingleChoiceItems(option, 0, null)
             .setPositiveButton("Go") { dialog, _ ->
                 val selectedPosition = (dialog as AlertDialog).listView.checkedItemPosition
-                if (selectedPosition == 0) {
-                    pageOne()
-                }
-                dialog.dismiss()
-                if (selectedPosition == 1) {
-                    pageTwo()
-                }
-                dialog.dismiss()
-                if (selectedPosition == 2) {
-                    pageThree()
-                }
-                dialog.dismiss()
-                if (selectedPosition == 3) {
-                    pageFour()
-                }
-                dialog.dismiss()
-                if (selectedPosition == 4) {
-                    pageFive()
-                }
-                dialog.dismiss()
-                if (selectedPosition == 5) {
-                    finish()
+                when (selectedPosition) {
+                    0 -> navigate(Page1Activity::class.java)
+                    1 -> navigate(Page2Activity::class.java)
+                    2 -> navigate(Page3Activity::class.java)
+                    3 -> navigate(Page4Activity::class.java)
+                    4 -> navigate(Page5Activity::class.java)
+                    5 -> finishAffinity()
                 }
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel"){_,_->}
+            .setNegativeButton("Cancel", null)
+            .create()
 
         b.btnOptionCover.setOnClickListener {
             singleChoiceDialogBox.show()
         }
     }
 
-    private fun pageOne() {
-        Intent(this, Page1Activity::class.java).also {
-            startActivity(it)
-        }
-    }
-
-    private fun pageTwo() {
-        Intent(this, Page2Activity::class.java).also {
-            startActivity(it)
-        }
-    }
-
-    private fun pageThree() {
-        Intent(this, Page3Activity::class.java).also {
-            startActivity(it)
-        }
-    }
-
-    private fun pageFour() {
-        Intent(this, Page4Activity::class.java).also {
-            startActivity(it)
-        }
-    }
-
-    private fun pageFive() {
-        Intent(this, Page5Activity::class.java).also {
+    private fun navigate(activityClass: Class<*>) {
+        Intent(this, activityClass).also {
             startActivity(it)
         }
     }
