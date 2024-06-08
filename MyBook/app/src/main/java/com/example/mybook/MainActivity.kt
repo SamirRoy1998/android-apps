@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 dialog.dismiss()
                 if (selectedPosition == 1) {
-
+                    pageTwo()
                 }
                 dialog.dismiss()
                 if (selectedPosition == 2) {
@@ -63,6 +63,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun pageOne() {
         Intent(this, Page1Activity::class.java).also {
+            startActivity(it)
+        }
+    }
+
+    private fun pageTwo() {
+        Intent(this, Page2Activity::class.java).also {
             startActivity(it)
         }
     }
