@@ -26,7 +26,7 @@ class Page4Activity : AppCompatActivity() {
             arrayOf("Page One", "Page Two", "Page Three", "Page Five", "Close Book", "Close App")
         val optionAlertDialog = AlertDialog.Builder(this)
             .setTitle("Choose one of this option")
-            .setSingleChoiceItems(option, 2, null)
+            .setSingleChoiceItems(option, 3, null)
             .setPositiveButton("Go") { dialog, _ ->
                 val selectPosition = (dialog as AlertDialog).listView.checkedItemPosition
                 when (selectPosition) {
