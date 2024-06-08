@@ -1,5 +1,6 @@
 package com.example.mybook
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Go") { dialog, _ ->
                 val selectedPosition = (dialog as AlertDialog).listView.checkedItemPosition
                 if (selectedPosition == 0) {
-
+                    pageOne()
                 }
                 dialog.dismiss()
                 if (selectedPosition == 1) {
@@ -57,6 +58,12 @@ class MainActivity : AppCompatActivity() {
 
         b.btnOptionCover.setOnClickListener {
             singleChoiceDialogBox.show()
+        }
+    }
+
+    private fun pageOne() {
+        Intent(this, Page1Activity::class.java).also {
+            startActivity(it)
         }
     }
 }
