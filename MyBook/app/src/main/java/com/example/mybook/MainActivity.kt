@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 dialog.dismiss()
                 if (selectedPosition == 2) {
-
+                    pageThree()
                 }
                 dialog.dismiss()
                 if (selectedPosition == 3) {
@@ -69,6 +69,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun pageTwo() {
         Intent(this, Page2Activity::class.java).also {
+            startActivity(it)
+        }
+    }
+
+    private fun pageThree() {
+        Intent(this, Page3Activity::class.java).also {
             startActivity(it)
         }
     }
