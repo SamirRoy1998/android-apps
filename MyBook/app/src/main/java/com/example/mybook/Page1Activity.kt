@@ -52,4 +52,13 @@ class Page1Activity : AppCompatActivity() {
             startActivity(it)
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Intent(this, MainActivity::class.java).also {
+            it.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(it)
+            finish()
+        }
+    }
 }
