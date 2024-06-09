@@ -2,6 +2,7 @@ package com.example.spinners
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val customYear = (1950..2024).toList().map { it.toString() }
+        val yearAdapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, customYear)
+        b.spYear.adapter = yearAdapter
+
         b.btnDone.setOnClickListener {
             val date = b.spDate.selectedItem.toString()
             val month = b.spMonth.selectedItem.toString()
