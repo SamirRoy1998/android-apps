@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val customYear = (1950..2024).toList().map { it.toString() }
         val yearAdapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, customYear)
         b.spYear.adapter = yearAdapter
+        b.spYear.setSelection(40)
 
         val customMonth = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec")
         val monthAdapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, customMonth)
