@@ -12,6 +12,7 @@ import com.example.mybook.databinding.ActivityPage2Binding
 
 class Page2Activity : AppCompatActivity() {
     private lateinit var b: ActivityPage2Binding
+    private val n = Navigation()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,11 +31,11 @@ class Page2Activity : AppCompatActivity() {
             .setPositiveButton("Go") { dialog, _ ->
                 val selectPosition = (dialog as AlertDialog).listView.checkedItemPosition
                 when (selectPosition) {
-                    0 -> backNavigate(Page1Activity::class.java)
-                    1 -> navigate(Page3Activity::class.java)
-                    2 -> navigate(Page4Activity::class.java)
-                    3 -> navigate(Page5Activity::class.java)
-                    4 -> closeBook()
+                    0 -> n.nav(this,Page1Activity::class.java)
+                    1 -> n.nav(this,Page3Activity::class.java)
+                    2 -> n.nav(this,Page4Activity::class.java)
+                    3 -> n.nav(this,Page5Activity::class.java)
+                    4 -> n.nav(this,MainActivity::class.java)
                     5 -> finishAffinity()
                 }
                 dialog.dismiss()
@@ -44,28 +45,6 @@ class Page2Activity : AppCompatActivity() {
 
         b.btnOptionPage2.setOnClickListener {
             singleChoiceAlertDialogBox.show()
-        }
-    }
-
-    private fun navigate(activityClass: Class<*>) {
-        Intent(this, activityClass).also {
-            startActivity(it)
-        }
-    }
-
-    private fun backNavigate(activityClass: Class<*>) {
-        Intent(this, activityClass).also {
-            it.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(it)
-            finish()
-        }
-    }
-
-    private fun closeBook() {
-        Intent(this, MainActivity::class.java).also {
-            it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(it)
-            finish()
         }
     }
 
