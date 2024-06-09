@@ -1,6 +1,5 @@
 package com.example.mybook
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -12,6 +11,7 @@ import com.example.mybook.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var b: ActivityMainBinding
+    private val n = Navigation()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,11 +29,11 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Go") { dialog, _ ->
                 val selectedPosition = (dialog as AlertDialog).listView.checkedItemPosition
                 when (selectedPosition) {
-                    0 -> navigate(Page1Activity::class.java)
-                    1 -> navigate(Page2Activity::class.java)
-                    2 -> navigate(Page3Activity::class.java)
-                    3 -> navigate(Page4Activity::class.java)
-                    4 -> navigate(Page5Activity::class.java)
+                    0 -> n.nav(this, Page1Activity::class.java)
+                    1 -> n.nav(this, Page2Activity::class.java)
+                    2 -> n.nav(this, Page3Activity::class.java)
+                    3 -> n.nav(this, Page4Activity::class.java)
+                    4 -> n.nav(this, Page5Activity::class.java)
                     5 -> finishAffinity()
                 }
                 dialog.dismiss()
@@ -43,12 +43,6 @@ class MainActivity : AppCompatActivity() {
 
         b.btnOptionCover.setOnClickListener {
             singleChoiceDialogBox.show()
-        }
-    }
-
-    private fun navigate(activityClass: Class<*>) {
-        Intent(this, activityClass).also {
-            startActivity(it)
         }
     }
 }
