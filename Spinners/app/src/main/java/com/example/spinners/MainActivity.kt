@@ -26,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         val yearAdapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, customYear)
         b.spYear.adapter = yearAdapter
 
+        val customMonth = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec")
+        val monthAdapter = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, customMonth)
+        b.spMonth.adapter = monthAdapter
+
         b.btnDone.setOnClickListener {
             val date = b.spDate.selectedItem.toString()
             val month = b.spMonth.selectedItem.toString()
