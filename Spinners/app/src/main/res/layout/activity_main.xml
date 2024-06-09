@@ -18,7 +18,7 @@
             android:id="@+id/txtDate"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
+            android:layout_marginStart="18dp"
             android:text="Date"
             android:textAlignment="center"
             android:textSize="25sp"
@@ -38,7 +38,7 @@
 
         <TextView
             android:id="@+id/txtYear"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="Year"
             android:textAlignment="center"
@@ -50,6 +50,7 @@
             android:id="@+id/spDate"
             android:layout_width="0dp"
             android:layout_height="48dp"
+            android:entries="@array/date"
             app:layout_constraintEnd_toEndOf="@+id/txtDate"
             app:layout_constraintStart_toStartOf="@+id/txtDate"
             app:layout_constraintTop_toBottomOf="@+id/txtDate" />
@@ -58,6 +59,7 @@
             android:id="@+id/spMonth"
             android:layout_width="0dp"
             android:layout_height="48dp"
+            android:entries="@array/month"
             app:layout_constraintEnd_toEndOf="@+id/txtMonth"
             app:layout_constraintStart_toEndOf="@+id/txtDate"
             app:layout_constraintTop_toBottomOf="@+id/txtMonth" />
@@ -66,6 +68,7 @@
             android:id="@+id/spYear"
             android:layout_width="0dp"
             android:layout_height="48dp"
+            android:entries="@array/year"
             app:layout_constraintEnd_toEndOf="@+id/txtYear"
             app:layout_constraintStart_toEndOf="@+id/txtMonth"
             app:layout_constraintTop_toBottomOf="@+id/txtYear" />
