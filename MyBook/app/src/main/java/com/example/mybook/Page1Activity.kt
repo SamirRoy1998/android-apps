@@ -12,6 +12,7 @@ import com.example.mybook.databinding.ActivityPage1Binding
 
 class Page1Activity : AppCompatActivity() {
     private lateinit var b: ActivityPage1Binding
+    private val n = Navigation()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,11 +31,11 @@ class Page1Activity : AppCompatActivity() {
             .setPositiveButton("Go") { dialog, _ ->
                 val selectPosition = (dialog as AlertDialog).listView.checkedItemPosition
                 when (selectPosition) {
-                    0 -> navigate(Page2Activity::class.java)
-                    1 -> navigate(Page3Activity::class.java)
-                    2 -> navigate(Page4Activity::class.java)
-                    3 -> navigate(Page5Activity::class.java)
-                    4 -> finish()
+                    0 -> n.nav(this, Page2Activity::class.java)
+                    1 -> n.nav(this, Page3Activity::class.java)
+                    2 -> n.nav(this, Page4Activity::class.java)
+                    3 -> n.nav(this, Page5Activity::class.java)
+                    4 -> n.nav(this, MainActivity::class.java)
                     5 -> finishAffinity()
                 }
                 dialog.dismiss()
@@ -44,12 +45,6 @@ class Page1Activity : AppCompatActivity() {
 
         b.btnOptionPage1.setOnClickListener {
             singleChoiceDialogBox.show()
-        }
-    }
-
-    private fun navigate(activityClass: Class<*>) {
-        Intent(this, activityClass).also {
-            startActivity(it)
         }
     }
 
