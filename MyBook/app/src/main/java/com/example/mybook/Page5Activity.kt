@@ -12,6 +12,7 @@ import com.example.mybook.databinding.ActivityPage5Binding
 
 class Page5Activity : AppCompatActivity() {
     private lateinit var b: ActivityPage5Binding
+    private val n = Navigation()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,11 +31,11 @@ class Page5Activity : AppCompatActivity() {
             .setPositiveButton("Go") { dialog, _ ->
                 val selectPosition = (dialog as AlertDialog).listView.checkedItemPosition
                 when (selectPosition) {
-                    0 -> backNavigate(Page1Activity::class.java)
-                    1 -> backNavigate(Page2Activity::class.java)
-                    2 -> backNavigate(Page3Activity::class.java)
-                    3 -> backNavigate(Page4Activity::class.java)
-                    4 -> closeBook()
+                    0 -> n.nav(this, Page1Activity::class.java)
+                    1 -> n.nav(this, Page2Activity::class.java)
+                    2 -> n.nav(this, Page3Activity::class.java)
+                    3 -> n.nav(this, Page4Activity::class.java)
+                    4 -> n.nav(this, MainActivity::class.java)
                     5 -> finishAffinity()
                 }
                 dialog.dismiss()
@@ -44,22 +45,6 @@ class Page5Activity : AppCompatActivity() {
 
         b.btnOptionPage5.setOnClickListener {
             optionAlertDialog.show()
-        }
-    }
-
-    private fun backNavigate(x: Class<*>) {
-        Intent(this, x).also {
-            it.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(it)
-            finish()
-        }
-    }
-
-    private fun closeBook() {
-        Intent(this, MainActivity::class.java).also {
-            it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(it)
-            finish()
         }
     }
 
