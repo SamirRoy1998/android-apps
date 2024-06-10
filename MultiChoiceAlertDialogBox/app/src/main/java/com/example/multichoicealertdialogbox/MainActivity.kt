@@ -12,6 +12,7 @@ import com.example.multichoicealertdialogbox.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var b: ActivityMainBinding
+    private var originalText = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        originalText = b.txtResult.text.toString()
         val meal = arrayOf("Rice", "Dall", "Papad", "Veg Curry", "Paneer Kofta")
         val selectedItems = booleanArrayOf(true, false, false, false, false)
         val multiChoiceAlertDialog = AlertDialog.Builder(this)
@@ -35,7 +37,12 @@ class MainActivity : AppCompatActivity() {
                 b.txtResult.visibility = View.VISIBLE
                 dialog.dismiss()
             }
-            .setNegativeButton("Decline",null)
+            .setNegativeButton("Decline") { dialog, _ ->
+                b.txtResult.text = originalText
+                b.txtResult.visibility = View.VISIBLE
+                selectedItems.fill(false)
+                dialog.dismiss()
+            }
             .create()
 
         b.btnOption.setOnClickListener {
