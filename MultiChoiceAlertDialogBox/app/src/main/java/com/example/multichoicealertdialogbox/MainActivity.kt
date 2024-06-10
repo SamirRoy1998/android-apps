@@ -38,9 +38,11 @@ class MainActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             .setNegativeButton("Decline") { dialog, _ ->
+                val newList = (dialog as AlertDialog).listView
                 b.txtResult.text = originalText
                 b.txtResult.visibility = View.VISIBLE
                 selectedItems.fill(false)
+                newList.clearChoices()
                 dialog.dismiss()
             }
             .create()
