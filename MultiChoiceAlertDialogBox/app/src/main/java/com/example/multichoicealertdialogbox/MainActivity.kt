@@ -1,7 +1,9 @@
 package com.example.multichoicealertdialogbox
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -19,6 +21,25 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val meal = arrayOf("Rice", "Dall", "Papad", "Veg Curry", "Paneer Kofta")
+        val selectedItems = booleanArrayOf(true, false, false, false, false)
+        val multiChoiceAlertDialog = AlertDialog.Builder(this)
+            .setTitle("Choose your meal")
+            .setMultiChoiceItems(meal, selectedItems) { _, index, isChecked ->
+                selectedItems[index] = isChecked
+            }
+            .setPositiveButton("Order") { dialog, _ ->
+                val selectedMeal = meal.filterIndexed { i, _ -> selectedItems[i] }
+                b.txtResult.text = selectedMeal.joinToString(", ")
+                b.txtResult.visibility = View.VISIBLE
+                dialog.dismiss()
+            }
+            .setNegativeButton("Decline",null)
+            .create()
+
+        b.btnOption.setOnClickListener {
+            multiChoiceAlertDialog.show()
         }
     }
 }
