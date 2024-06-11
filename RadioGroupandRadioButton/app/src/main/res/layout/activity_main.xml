@@ -17,13 +17,133 @@
         tools:context=".MainActivity">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/txtNumberHeading"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="20dp"
+            android:text="Choose a number"
+            android:textAlignment="center"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/rgNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNumberHeading">
+
+            <RadioButton
+                android:id="@+id/rbOne"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="One" />
+
+            <RadioButton
+                android:id="@+id/rbTwo"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Two" />
+
+            <RadioButton
+                android:id="@+id/rbThree"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Three" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txtColorHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Choose a color"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/rgNumber" />
+
+        <RadioGroup
+            android:id="@+id/rgColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtColorHeading">
+
+            <RadioButton
+                android:id="@+id/rbRed"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Red" />
+
+            <RadioButton
+                android:id="@+id/rbBlue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Blue" />
+
+            <RadioButton
+                android:id="@+id/rbGreen"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Green" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txtBorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="*****************************"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rgColor" />
+
+        <TextView
+            android:id="@+id/txtWithoutRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Below Radio Button without Radio Group"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtBorder" />
+
+        <RadioButton
+            android:id="@+id/rbA"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="A"
+            app:layout_constraintEnd_toStartOf="@+id/rbB"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtWithoutRadioGroup" />
+
+        <RadioButton
+            android:id="@+id/rbB"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="B"
+            app:layout_constraintEnd_toStartOf="@+id/rbC"
+            app:layout_constraintStart_toEndOf="@+id/rbA"
+            app:layout_constraintTop_toBottomOf="@+id/txtWithoutRadioGroup" />
+
+        <RadioButton
+            android:id="@+id/rbC"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rbB"
+            app:layout_constraintTop_toBottomOf="@+id/txtWithoutRadioGroup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
