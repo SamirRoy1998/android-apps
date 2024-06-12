@@ -13,7 +13,7 @@ class TodoAdapter(var todos: List<Todo>) : RecyclerView.Adapter<TodoAdapter.Todo
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return todos.size
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
