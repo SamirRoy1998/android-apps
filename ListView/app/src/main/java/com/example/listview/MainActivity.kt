@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
         val customAdapter1 = ArrayAdapter(this, android.R.layout.simple_list_item_1, data1)
         val customAdapter2 = ArrayAdapter(this, android.R.layout.simple_list_item_1, personStrings)
         b.lvMain.adapter = customAdapter2
-        b.lvMain.setOnItemClickListener { parent, view, position, id ->
+        b.lvMain.setOnItemClickListener { _, _, position, _ ->
             val selectedItem = personStrings[position]
             Toast.makeText(this, selectedItem, Toast.LENGTH_SHORT).show()
         }
