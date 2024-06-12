@@ -1,6 +1,7 @@
 package com.example.todo
 
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,5 +26,16 @@ class MainActivity : AppCompatActivity() {
         val adapter = TodoAdapter(todoList)
         b.rvMain.adapter = adapter
         b.rvMain.layoutManager = LinearLayoutManager(this)
+
+        b.btnAdd.setOnClickListener {
+            val title = b.edTodo.text.toString()
+            val todo = Todo(title, false)
+            todoList.add(todo)
+            adapter.notifyItemInserted(todoList.size-1)
+
+            val x = getSystemService(INPUT_METHOD_SERVICE)as InputMethodManager
+            x.hideSoftInputFromWindow(b.edTodo.windowToken,0)
+            b.edTodo.text.clear()
+        }
     }
 }
