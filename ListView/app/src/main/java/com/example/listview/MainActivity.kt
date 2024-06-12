@@ -2,6 +2,7 @@ package com.example.listview
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -135,5 +136,9 @@ class MainActivity : AppCompatActivity() {
         val customAdapter1 = ArrayAdapter(this, android.R.layout.simple_list_item_1, data1)
         val customAdapter2 = ArrayAdapter(this, android.R.layout.simple_list_item_1, personStrings)
         b.lvMain.adapter = customAdapter2
+        b.lvMain.setOnItemClickListener { parent, view, position, id ->
+            val selectedItem = personStrings[position]
+            Toast.makeText(this, selectedItem, Toast.LENGTH_SHORT).show()
+        }
     }
 }
