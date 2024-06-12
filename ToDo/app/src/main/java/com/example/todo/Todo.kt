@@ -1,4 +1,3 @@
 package com.example.todo
 
-class Todo {
-}
+data class Todo(val name: String, var check: Boolean)
