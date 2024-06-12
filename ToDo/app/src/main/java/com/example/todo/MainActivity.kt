@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.todo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private var todoList = mutableListOf(Todo("Are you learn RecyclerView", false))
     private lateinit var b: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
