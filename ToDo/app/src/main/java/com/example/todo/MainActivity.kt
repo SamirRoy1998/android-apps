@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private var todoList = mutableListOf(Todo("Are you learn RecyclerView", false))
+    private var todoList = mutableListOf(Todo("Are you learn RecyclerView?", false))
     private lateinit var b: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        b.rvMain.adapter = TodoAdapter(todoList)
+        val adapter = TodoAdapter(todoList)
+        b.rvMain.adapter = adapter
         b.rvMain.layoutManager = LinearLayoutManager(this)
     }
 }
