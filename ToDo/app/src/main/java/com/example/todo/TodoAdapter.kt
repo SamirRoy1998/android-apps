@@ -3,6 +3,8 @@ package com.example.todo
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class TodoAdapter(var todos: List<Todo>) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
@@ -19,6 +21,9 @@ class TodoAdapter(var todos: List<Todo>) : RecyclerView.Adapter<TodoAdapter.Todo
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.itemView.apply {
+            findViewById<TextView>(R.id.txtTitle).text = todos[position].title
+            findViewById<CheckBox>(R.id.cbDone).isChecked = todos[position].check
+        }
     }
 }
