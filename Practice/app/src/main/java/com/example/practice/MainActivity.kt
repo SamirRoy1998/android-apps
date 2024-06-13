@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.practice.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,5 +21,9 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val list = DataStorage()
+        val adapter = RvAdapter(list.list)
+        b.rvMain.adapter = adapter
+        b.rvMain.layoutManager = LinearLayoutManager(this)
     }
 }
