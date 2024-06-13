@@ -1,4 +1,3 @@
 package com.example.practice
 
-class Data {
-}
+data class Data(val name:String, val number:String)
