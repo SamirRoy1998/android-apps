@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class RvAdapter(val list: List<Data>) : RecyclerView.Adapter<RvAdapter.RvViewHolder>() {
+class RvAdapter(private val list: List<Data>) : RecyclerView.Adapter<RvAdapter.RvViewHolder>() {
     inner class RvViewHolder(view: View) : ViewHolder(view){
         val textTitle:TextView = view.findViewById(R.id.txtRvTitle)
         val textDetail:TextView = view.findViewById(R.id.txtRvDetail)
