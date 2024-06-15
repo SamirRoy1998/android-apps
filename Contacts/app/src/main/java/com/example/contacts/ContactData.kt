@@ -1,4 +1,3 @@
 package com.example.contacts
 
-class ContactData {
-}
+data class ContactData(val name: String, val number: String, val profilePhoto: Int)
