@@ -26,6 +26,14 @@ class MainActivity : AppCompatActivity() {
         val profile = ProfileFragment()
 
         setCurrentFragment(home)
+        b.bottomNavigationView.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.miHome -> setCurrentFragment(home)
+                R.id.miMessage -> setCurrentFragment(message)
+                R.id.miProfile -> setCurrentFragment(profile)
+            }
+            true
+        }
     }
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
