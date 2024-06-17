@@ -21,6 +21,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val home = HomeFragment()
+        val message = MessageFragment()
+        val profile = ProfileFragment()
+
+        setCurrentFragment(home)
     }
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
