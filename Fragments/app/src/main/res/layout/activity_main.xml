@@ -14,6 +14,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFEB3B"
         tools:context=".MainActivity">
 
         <Button
@@ -38,8 +39,8 @@
 
         <FrameLayout
             android:id="@+id/flFragment"
-            android:layout_width="400dp"
-            android:layout_height="600dp"
+            android:layout_width="350dp"
+            android:layout_height="500dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
