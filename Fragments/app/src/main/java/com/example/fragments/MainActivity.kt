@@ -20,5 +20,22 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val firstFragment = FirstFragment()
+        val secondFragment = SecondFragment()
+
+        b.btnF1.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.flFragment,firstFragment)
+                addToBackStack(null)
+                commit()
+            }
+        }
+        b.btnF2.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.flFragment,secondFragment)
+                addToBackStack(null)
+                commit()
+            }
+        }
     }
 }
