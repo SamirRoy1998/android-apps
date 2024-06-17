@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager2.widget.ViewPager2
 import com.example.viewpager.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -43,5 +44,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         b.vpMain.adapter= ViewPagerAdapter(images)
+        b.vpMain.orientation = ViewPager2.ORIENTATION_VERTICAL
     }
 }
