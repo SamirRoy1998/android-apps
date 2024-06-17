@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        b.bottomNavigationView.getOrCreateBadge(R.id.miMessage).apply {
+            number = 10
+            isVisible = true
+        }
     }
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
