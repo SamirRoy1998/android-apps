@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.example.fragmentwithbottommenubar.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,4 +22,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+    private fun setCurrentFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, fragment)
+            commit()
+        }
 }
