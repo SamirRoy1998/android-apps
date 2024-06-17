@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         b.vpMain.adapter= ViewPagerAdapter(images)
         b.vpMain.orientation = ViewPager2.ORIENTATION_VERTICAL
         b.vpMain.beginFakeDrag()
-        b.vpMain.fakeDragBy(-3f)
+        b.vpMain.fakeDragBy(-5f)
         b.vpMain.endFakeDrag()
     }
 }
