@@ -4,21 +4,31 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.practice.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
+    private lateinit var b: FragmentFirstBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_first, container, false)
-        view.findViewById<Button>(R.id.btnNext).setOnClickListener {
+    ): View {
+        b = FragmentFirstBinding.inflate(inflater, container, false)
+        b.firstFrag = this
+        return b.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        b.btnNext.setOnClickListener {
             val frag = SecondFragment()
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.flFragment, frag).addToBackStack(null).commit()
         }
-        return view
+        b.btnChange.setOnClickListener {
+            b.tvFirstFragment.text = "Its works"
+        }
     }
 }
