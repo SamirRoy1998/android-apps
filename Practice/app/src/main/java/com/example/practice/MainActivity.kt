@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.example.practice.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,5 +21,12 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val first = FirstFragment()
+        setCurrentFragment(first)
     }
+    private fun setCurrentFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, fragment)
+            commit()
+        }
 }
