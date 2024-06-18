@@ -4,32 +4,23 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.contacts.databinding.RvContactItemBinding
 
 class RvContactAdapter(private val list: List<ContactData>) :
     RecyclerView.Adapter<RvContactAdapter.RvContactViewHolder>() {
 
     private var lastClickedPosition: Int? = null
 
-    inner class RvContactViewHolder(view: View) : ViewHolder(view) {
-        val name: TextView = view.findViewById(R.id.txtRvName)
-        val number: TextView = view.findViewById(R.id.txtRvNumber)
-        val profilePhoto: ImageView = view.findViewById(R.id.ivRvProfilePhoto)
-        val call: ImageView = view.findViewById(R.id.ivRvCall)
-        val message: ImageView = view.findViewById(R.id.ivRvMessage)
-        val history: ImageView = view.findViewById(R.id.ivRvHistory)
-        val cardView: CardView = view.findViewById(R.id.cvRvMain)
-    }
+    inner class RvContactViewHolder(val b: RvContactItemBinding) : ViewHolder(b.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvContactViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.rv_contact_item, parent, false)
-        return RvContactViewHolder(view)
+        val binding =
+            RvContactItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+        return RvContactViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -38,20 +29,20 @@ class RvContactAdapter(private val list: List<ContactData>) :
 
     override fun onBindViewHolder(holder: RvContactViewHolder, position: Int) {
         val item = list[position]
-        holder.name.text = item.name
-        holder.number.text = item.number
-        holder.profilePhoto.setImageResource(item.profilePhoto)
+        holder.b.txtRvName.text = item.name
+        holder.b.txtRvNumber.text = item.number
+        holder.b.ivRvProfilePhoto.setImageResource(item.profilePhoto)
 
-        holder.call.visibility = View.GONE
-        holder.message.visibility = View.GONE
-        holder.history.visibility = View.GONE
-        holder.cardView.setCardBackgroundColor(Color.parseColor("#EFEFEF"))
+        holder.b.ivRvCall.visibility = View.GONE
+        holder.b.ivRvMessage.visibility = View.GONE
+        holder.b.ivRvHistory.visibility = View.GONE
+        holder.b.cvRvMain.setCardBackgroundColor(Color.parseColor("#EFEFEF"))
 
         if (lastClickedPosition == holder.adapterPosition) {
-            holder.call.visibility = View.VISIBLE
-            holder.message.visibility = View.VISIBLE
-            holder.history.visibility = View.VISIBLE
-            holder.cardView.setCardBackgroundColor(Color.parseColor("#ACACAC"))
+            holder.b.ivRvCall.visibility = View.VISIBLE
+            holder.b.ivRvMessage.visibility = View.VISIBLE
+            holder.b.ivRvHistory.visibility = View.VISIBLE
+            holder.b.cvRvMain.setCardBackgroundColor(Color.parseColor("#ACACAC"))
         }
 
         holder.itemView.setOnClickListener {
@@ -66,21 +57,21 @@ class RvContactAdapter(private val list: List<ContactData>) :
             }
         }
 
-        holder.call.setOnClickListener {
+        holder.b.ivRvCall.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
                 "Calling ${list[position].name}, But\nCalling Feature not added yet😥",
                 Toast.LENGTH_LONG
             ).show()
         }
-        holder.message.setOnClickListener {
+        holder.b.ivRvMessage.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
                 "Open Message app for ${list[position].name}, But\nOpen Message app Feature not added yet😥",
                 Toast.LENGTH_LONG
             ).show()
         }
-        holder.history.setOnClickListener {
+        holder.b.ivRvHistory.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
                 "Opening ${list[position].name}'s history, But\nHistory Feature not added yet😥",
