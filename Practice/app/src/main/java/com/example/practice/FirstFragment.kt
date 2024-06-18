@@ -1,4 +1,5 @@
 package com.example.practice
 
-class FirstFragment {
-}
+import androidx.fragment.app.Fragment
+
+class FirstFragment :Fragment(R.layout.fragment_first)
