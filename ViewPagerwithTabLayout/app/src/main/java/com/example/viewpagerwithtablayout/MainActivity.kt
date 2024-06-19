@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.example.viewpagerwithtablayout.databinding.ActivityMainBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -21,6 +22,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.viewPager.adapter = VpAdapter(storage.images)
+        val viewPager = binding.viewPager
+        val tabLayout = binding.tabLayout
+        viewPager.adapter = VpAdapter(storage.images)
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = "${position + 1}"
+        }.attach()
     }
 }
