@@ -24,7 +24,9 @@ class FirstFragment : Fragment() {
         b.btnNext.setOnClickListener {
             val frag = SecondFragment()
             val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.flFragment, frag).addToBackStack(null).commit()
+//            transaction.replace(R.id.flFragment, frag).addToBackStack(null).commit()
+            // using dataBinding↓
+            transaction.replace((activity as MainActivity).b.flFragment.id, frag).addToBackStack(null).commit()
         }
         b.btnChange.setOnClickListener {
             val newText = "Its works"
