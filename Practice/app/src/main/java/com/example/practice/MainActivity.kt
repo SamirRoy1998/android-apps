@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment, fragment)
+            replace(b.flFragment.id, fragment)
             commit()
         }
 }
