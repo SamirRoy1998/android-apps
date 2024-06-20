@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.practice.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var b: ActivityMainBinding
+    private lateinit var b: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,4 +29,8 @@ class MainActivity : AppCompatActivity() {
             replace(b.flFragment.id, fragment)
             commit()
         }
+
+    fun getFragmentContainerId(): Int {
+        return b.flFragment.id
+    }
 }
