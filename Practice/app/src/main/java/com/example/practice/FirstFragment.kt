@@ -11,6 +11,8 @@ class FirstFragment : Fragment() {
 //    private lateinit var b: FragmentFirstBinding
     private var _b:FragmentFirstBinding? = null
     private val b get() = _b!!
+
+    // ↓ Inflate the layout and initialize binding ↓
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,13 +22,22 @@ class FirstFragment : Fragment() {
         _b = FragmentFirstBinding.inflate(inflater, container, false)
         b.firstFrag = this
         return b.root
+        // -> Initializes the binding.
     }
 
-    override fun onDestroy() {
+    // ↓ Called when the view hierarchy associated with the fragment is being removed ↓
+    override fun onDestroyView() {
         super.onDestroyView()
-        _b =null
+        _b = null
+        // -> Properly nullifies the binding to avoid memory leaks.
     }
 
+    // ↓ Called when the fragment is being destroyed ↓
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
+    // ↓ Set up button click listeners after the view is created ↓
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         b.btnNext.setOnClickListener {
@@ -43,5 +54,6 @@ class FirstFragment : Fragment() {
         b.btnF1Quit.setOnClickListener {
             (activity as MainActivity).finish()
         }
+        // -> Sets up the button click listeners.
     }
 }
