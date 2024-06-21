@@ -40,5 +40,8 @@ class FirstFragment : Fragment() {
             val newText = "Its works"
             b.tvFirstFragment.text = newText
         }
+        b.btnF1Quit.setOnClickListener {
+            (activity as MainActivity).finish()
+        }
     }
 }
