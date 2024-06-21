@@ -33,8 +33,19 @@
             android:layout_marginBottom="30dp"
             android:text="Back"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintEnd_toStartOf="@+id/btnF2Quit"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnF2Quit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close App"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnBack" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
