@@ -1,6 +1,7 @@
 package com.example.fragmentwithbottommenubar
 
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -43,9 +44,10 @@ class MainActivity : AppCompatActivity() {
             isVisible = true
         }
     }
-    private fun setCurrentFragment(fragment: Fragment) =
+    private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment, fragment)
+            replace(b.flFragment.id, fragment)
             commit()
         }
+    }
 }
