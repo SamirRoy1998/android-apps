@@ -2,6 +2,7 @@ package com.example.slidemenuwithnavigationdrawer
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -37,8 +38,11 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.navView)
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.miTitle1 -> Toast.makeText(applicationContext, "Title 1", Toast.LENGTH_SHORT)
+                R.id.miTitle1 -> {
+                    findViewById<TextView>(R.id.tvText).text = "Title 1"
+                    Toast.makeText(applicationContext, "Title 1", Toast.LENGTH_SHORT)
                     .show()
+                }
 
                 R.id.miTitle2 -> Toast.makeText(applicationContext, "Title 2", Toast.LENGTH_SHORT)
                     .show()
