@@ -1,6 +1,7 @@
 package com.example.practice
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,7 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         b.bottomNavBar.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.miFirst -> setCurrentFragment(first)
+                R.id.miFirst -> {
+                    setCurrentFragment(first)
+                    Toast.makeText(this, "Testing", Toast.LENGTH_SHORT).show()
+                }
                 R.id.miSecond -> setCurrentFragment(second)
             }
             true
