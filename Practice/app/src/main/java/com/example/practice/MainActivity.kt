@@ -22,7 +22,16 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         val first = FirstFragment()
+        val second = SecondFragment()
         setCurrentFragment(first)
+
+        b.bottomNavBar.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.miFirst -> setCurrentFragment(first)
+                R.id.miSecond -> setCurrentFragment(second)
+            }
+            true
+        }
     }
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
