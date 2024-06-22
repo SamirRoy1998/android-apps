@@ -23,5 +23,8 @@ class SecondFragment : Fragment() {
         b.btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
+        b.btnF2Quit.setOnClickListener {
+            (activity as MainActivity).finish()
+        }
     }
 }
