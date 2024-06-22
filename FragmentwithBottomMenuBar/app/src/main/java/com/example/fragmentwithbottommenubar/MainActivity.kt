@@ -1,6 +1,7 @@
 package com.example.fragmentwithbottommenubar
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -28,7 +29,10 @@ class MainActivity : AppCompatActivity() {
         setCurrentFragment(home)
         b.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.miHome -> setCurrentFragment(home)
+                R.id.miHome -> {
+                    setCurrentFragment(home)
+                    Toast.makeText(this, "Testing", Toast.LENGTH_SHORT).show()
+                }
                 R.id.miMessage -> setCurrentFragment(message)
                 R.id.miProfile -> setCurrentFragment(profile)
             }
