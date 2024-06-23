@@ -3,6 +3,7 @@ package com.example.sharedpreferences
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -42,22 +43,27 @@ class MainActivity : AppCompatActivity() {
             val name = sharedPref.getString("name", "")
             val country = sharedPref.getString("country", "")
             val isAdult = sharedPref.getBoolean("isAdult", false)
-            binding.tvName.apply {
-                text = name
-                visibility = View.VISIBLE
-            }
-            binding.tvCountry.apply {
-                text = country
-                visibility = View.VISIBLE
-            }
-            binding.tvIsAdult.apply {
-                text = if (isAdult) "Yes" else "No"
-                visibility = if (name==""||country=="")View.GONE else View.VISIBLE
-            }
-            binding.tvNameHeading.visibility = if (name == "") View.GONE else View.VISIBLE
-            binding.tvCountryHeading.visibility = if (country == "") View.GONE else View.VISIBLE
-            binding.tvIsAdultHeading.visibility =
-                if (name == "" || country == "") View.GONE else View.VISIBLE
+            updateTextView(binding.tvName, name, binding.tvNameHeading)
+            updateTextView(binding.tvCountry, country, binding.tvCountryHeading)
+            updateTextView(
+                binding.tvIsAdult,
+                if (isAdult) "Yes" else "No",
+                binding.tvIsAdultHeading,
+                name.isNullOrEmpty() || country.isNullOrEmpty()
+            )
         }
+    }
+
+    private fun updateTextView(
+        textView: TextView,
+        text: String?,
+        heading: TextView,
+        isEmpty: Boolean = text.isNullOrEmpty()
+    ) {
+        textView.apply {
+            this.text = text
+            visibility = if (isEmpty) View.GONE else View.VISIBLE
+        }
+        heading.visibility = if (isEmpty) View.GONE else View.VISIBLE
     }
 }
