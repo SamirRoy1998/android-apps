@@ -1,134 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter Your Name"
-        android:minHeight="48dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/etCountry"
-        app:layout_constraintEnd_toStartOf="@+id/etCountry"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+    <data>
 
-    <EditText
-        android:id="@+id/etCountry"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:hint="Enter Your Country"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/etName"
-        app:layout_constraintTop_toTopOf="parent" />
+        <variable
+            name="main"
+            type="com.example.sharedpreferences.MainActivity" />
+    </data>
 
-    <CheckBox
-        android:id="@+id/cbIsAdult"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Adult?"
-        app:layout_constraintEnd_toStartOf="@+id/btnLoad"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnLoad"
-        app:layout_constraintTop_toTopOf="@+id/cbIsAdult" />
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Name"
+            android:minHeight="48dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/etCountry"
+            app:layout_constraintEnd_toStartOf="@+id/etCountry"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btnLoad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Load"
-        app:layout_constraintEnd_toStartOf="@+id/btnSave"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/cbIsAdult"
-        app:layout_constraintTop_toTopOf="@+id/cbIsAdult" />
+        <EditText
+            android:id="@+id/etCountry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="Enter Your Country"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/etName"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvNameHeading"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Name: "
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvName"
-        app:layout_constraintEnd_toStartOf="@+id/tvName"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        <CheckBox
+            android:id="@+id/cbIsAdult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Adult?"
+            app:layout_constraintEnd_toStartOf="@+id/btnLoad"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etName" />
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvNameHeading"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoad" />
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnLoad"
+            app:layout_constraintTop_toTopOf="@+id/cbIsAdult" />
 
-    <TextView
-        android:id="@+id/tvCountryHeading"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Country: "
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvCountry"
-        app:layout_constraintEnd_toStartOf="@+id/tvCountry"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btnLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load"
+            app:layout_constraintEnd_toStartOf="@+id/btnSave"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cbIsAdult"
+            app:layout_constraintTop_toTopOf="@+id/cbIsAdult" />
 
-    <TextView
-        android:id="@+id/tvCountry"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvCountryHeading"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameHeading" />
+        <TextView
+            android:id="@+id/tvNameHeading"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            android:textSize="30sp"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvName"
+            app:layout_constraintEnd_toStartOf="@+id/tvName"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tvIsAdultHeading"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="18+ "
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvIsAdult"
-        app:layout_constraintEnd_toStartOf="@+id/tvIsAdult"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvNameHeading"
+            app:layout_constraintTop_toBottomOf="@+id/btnLoad" />
 
-    <TextView
-        android:id="@+id/tvIsAdult"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvIsAdultHeading"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountryHeading" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvCountryHeading"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Country: "
+            android:textSize="30sp"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvCountry"
+            app:layout_constraintEnd_toStartOf="@+id/tvCountry"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCountry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvCountryHeading"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameHeading" />
+
+        <TextView
+            android:id="@+id/tvIsAdultHeading"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="18+ "
+            android:textSize="30sp"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvIsAdult"
+            app:layout_constraintEnd_toStartOf="@+id/tvIsAdult"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvIsAdult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvIsAdultHeading"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountryHeading" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
