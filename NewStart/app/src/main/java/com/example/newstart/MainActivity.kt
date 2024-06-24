@@ -38,18 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             uri?.let {
-                val intent = Intent(this, SubmittedPageActivity::class.java).apply {
-                    putExtra("EXTRA_IMAGE", it.toString())
-                    putExtra("EXTRA_FIRST_NAME", firstName)
-                    putExtra("EXTRA_LAST_NAME", lastName)
-                    putExtra("EXTRA_ADDRESS", address)
-                    putExtra("EXTRA_COUNTRY", country)
-                    putExtra("EXTRA_PIN_CODE", pinCode)
-                    putExtra("EXTRA_DATE_OF_BIRTH", dateOfBirth)
-                    putExtra("EXTRA_BLOOD_GROUP", bloodGroup)
-                    putExtra("EXTRA_PHONE_NUMBER", phoneNumber)
-                }
-                startActivity(intent)
+                navigateToSubmittedPage(it.toString())
             } ?: Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show()
         }
 
@@ -112,5 +101,20 @@ class MainActivity : AppCompatActivity() {
                 dateOfBirth.isNotBlank() &&
                 bloodGroup.isNotBlank() &&
                 phoneNumber.isNotBlank()
+    }
+
+    private fun navigateToSubmittedPage(imageUri: String) {
+        val intent = Intent(this, SubmittedPageActivity::class.java).apply {
+            putExtra("EXTRA_IMAGE", imageUri)
+            putExtra("EXTRA_FIRST_NAME", firstName)
+            putExtra("EXTRA_LAST_NAME", lastName)
+            putExtra("EXTRA_ADDRESS", address)
+            putExtra("EXTRA_COUNTRY", country)
+            putExtra("EXTRA_PIN_CODE", pinCode)
+            putExtra("EXTRA_DATE_OF_BIRTH", dateOfBirth)
+            putExtra("EXTRA_BLOOD_GROUP", bloodGroup)
+            putExtra("EXTRA_PHONE_NUMBER", phoneNumber)
+        }
+        startActivity(intent)
     }
 }
