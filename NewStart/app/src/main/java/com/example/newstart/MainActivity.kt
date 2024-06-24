@@ -3,6 +3,7 @@ package com.example.newstart
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -27,22 +28,14 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.firstActivity = this
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
         binding.btnClear.setOnClickListener {
-            val x = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            x.hideSoftInputFromWindow(binding.etFirstName.windowToken, 0)
-            x.hideSoftInputFromWindow(binding.etLastName.windowToken, 0)
-            x.hideSoftInputFromWindow(binding.etAddress.windowToken, 0)
-            x.hideSoftInputFromWindow(binding.etPinCode.windowToken, 0)
-            x.hideSoftInputFromWindow(binding.etCountry.windowToken, 0)
-            x.hideSoftInputFromWindow(binding.etBloodGroup.windowToken, 0)
-            x.hideSoftInputFromWindow(binding.etDateOfBirth.windowToken, 0)
-            x.hideSoftInputFromWindow(binding.etContactNumber.windowToken, 0)
+            hideKeyboard(it)
 
             binding.etFirstName.text.clear()
             binding.etLastName.text.clear()
@@ -52,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             binding.etBloodGroup.text.clear()
             binding.etDateOfBirth.text.clear()
             binding.etContactNumber.text.clear()
-
         }
 
         binding.btnSubmit.setOnClickListener {
@@ -101,5 +93,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+    }
+    private fun hideKeyboard(view: View){
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken,0)
     }
 }
