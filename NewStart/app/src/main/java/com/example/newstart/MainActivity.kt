@@ -40,30 +40,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSubmit.setOnClickListener {
-            firstName = binding.etFirstName.text.toString()
-            lastName = binding.etLastName.text.toString()
-            address = binding.etAddress.text.toString()
-            country = binding.etCountry.text.toString()
-            pinCode = binding.etPinCode.text.toString()
-            dateOfBirth = binding.etDateOfBirth.text.toString()
-            bloodGroup = binding.etBloodGroup.text.toString()
-            phoneNumber = binding.etContactNumber.text.toString()
+            if (collectInputData()) {
+                try {
+                    Intent(Intent.ACTION_GET_CONTENT).also {
+                        it.type = "image/*"
 
-            if (firstName.isBlank() || lastName.isBlank() || address.isBlank() || country.isBlank() ||
-                pinCode.isBlank() || dateOfBirth.isBlank() || bloodGroup.isBlank() || phoneNumber.isBlank()
-            ) {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            try {
-                Intent(Intent.ACTION_GET_CONTENT).also {
-                    it.type = "image/*"
-
-                    startActivityForResult(it, 0)
+                        startActivityForResult(it, 0)
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
-            } catch (e: Exception) {
-                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -103,5 +91,25 @@ class MainActivity : AppCompatActivity() {
             etDateOfBirth.text.clear()
             etContactNumber.text.clear()
         }
+    }
+
+    private fun collectInputData(): Boolean {
+        firstName = binding.etFirstName.text.toString()
+        lastName = binding.etLastName.text.toString()
+        address = binding.etAddress.text.toString()
+        country = binding.etCountry.text.toString()
+        pinCode = binding.etPinCode.text.toString()
+        dateOfBirth = binding.etDateOfBirth.text.toString()
+        bloodGroup = binding.etBloodGroup.text.toString()
+        phoneNumber = binding.etContactNumber.text.toString()
+
+        return firstName.isNotBlank() &&
+                lastName.isNotBlank() &&
+                address.isNotBlank() &&
+                country.isNotBlank() &&
+                pinCode.isNotBlank() &&
+                dateOfBirth.isNotBlank() &&
+                bloodGroup.isNotBlank() &&
+                phoneNumber.isNotBlank()
     }
 }
