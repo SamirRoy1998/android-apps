@@ -36,15 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnClear.setOnClickListener {
             hideKeyboard(it)
-
-            binding.etFirstName.text.clear()
-            binding.etLastName.text.clear()
-            binding.etAddress.text.clear()
-            binding.etPinCode.text.clear()
-            binding.etCountry.text.clear()
-            binding.etBloodGroup.text.clear()
-            binding.etDateOfBirth.text.clear()
-            binding.etContactNumber.text.clear()
+            clearText()
         }
 
         binding.btnSubmit.setOnClickListener {
@@ -94,8 +86,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun hideKeyboard(view: View){
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken,0)
+    }
+
+    private fun clearText() {
+        with(binding) {
+            etFirstName.text.clear()
+            etLastName.text.clear()
+            etAddress.text.clear()
+            etPinCode.text.clear()
+            etCountry.text.clear()
+            etBloodGroup.text.clear()
+            etDateOfBirth.text.clear()
+            etContactNumber.text.clear()
+        }
     }
 }
