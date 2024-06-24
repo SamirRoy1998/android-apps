@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
@@ -63,6 +64,50 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
         }
+
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        binding.btnSave.setOnClickListener {
+            firstName = binding.etFirstName.text.toString()
+            lastName = binding.etLastName.text.toString()
+            address = binding.etAddress.text.toString()
+            country = binding.etCountry.text.toString()
+            pinCode = binding.etPinCode.text.toString()
+            dateOfBirth = binding.etDateOfBirth.text.toString()
+            bloodGroup = binding.etBloodGroup.text.toString()
+            phoneNumber = binding.etContactNumber.text.toString()
+
+            editor.putString("firstName", firstName)
+            editor.putString("lastName", lastName)
+            editor.putString("address", address)
+            editor.putString("country", country)
+            editor.putString("pinCode", pinCode)
+            editor.putString("dateOfBirth", dateOfBirth)
+            editor.putString("bloodGroup", bloodGroup)
+            editor.putString("phoneNumber", phoneNumber)
+            editor.apply()
+        }
+
+        binding.btnLoad.setOnClickListener {
+            firstName = sharedPreferences.getString("firstName", "") ?: ""
+            lastName = sharedPreferences.getString("lastName", "") ?: ""
+            address = sharedPreferences.getString("address", "") ?: ""
+            country = sharedPreferences.getString("country", "") ?: ""
+            pinCode = sharedPreferences.getString("pinCode", "") ?: ""
+            dateOfBirth = sharedPreferences.getString("dateOfBirth", "") ?: ""
+            bloodGroup = sharedPreferences.getString("bloodGroup", "") ?: ""
+            phoneNumber = sharedPreferences.getString("phoneNumber", "") ?: ""
+
+            updateData(binding.etFirstName, firstName)
+            updateData(binding.etLastName, lastName)
+            updateData(binding.etAddress, address)
+            updateData(binding.etCountry, country)
+            updateData(binding.etPinCode, pinCode)
+            updateData(binding.etDateOfBirth, dateOfBirth)
+            updateData(binding.etBloodGroup, bloodGroup)
+            updateData(binding.etContactNumber, phoneNumber)
+        }
     }
 
     private fun hideKeyboard(view: View){
@@ -116,5 +161,11 @@ class MainActivity : AppCompatActivity() {
             putExtra("EXTRA_PHONE_NUMBER", phoneNumber)
         }
         startActivity(intent)
+    }
+
+    private fun updateData(editText: EditText, text: String?) {
+        editText.apply {
+            this.setText(text)
+        }
     }
 }
