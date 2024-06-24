@@ -1,12 +1,13 @@
 package com.example.newstart
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private var dateOfBirth = ""
     private var bloodGroup = ""
     private var phoneNumber = ""
+    private lateinit var getContent: ActivityResultLauncher<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,6 +36,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            uri?.let {
+                val intent = Intent(this, SubmittedPageActivity::class.java).apply {
+                    putExtra("EXTRA_IMAGE", it.toString())
+                    putExtra("EXTRA_FIRST_NAME", firstName)
+                    putExtra("EXTRA_LAST_NAME", lastName)
+                    putExtra("EXTRA_ADDRESS", address)
+                    putExtra("EXTRA_COUNTRY", country)
+                    putExtra("EXTRA_PIN_CODE", pinCode)
+                    putExtra("EXTRA_DATE_OF_BIRTH", dateOfBirth)
+                    putExtra("EXTRA_BLOOD_GROUP", bloodGroup)
+                    putExtra("EXTRA_PHONE_NUMBER", phoneNumber)
+                }
+                startActivity(intent)
+            } ?: Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show()
+        }
+
         binding.btnClear.setOnClickListener {
             hideKeyboard(it)
             clearText()
@@ -42,35 +61,17 @@ class MainActivity : AppCompatActivity() {
         binding.btnSubmit.setOnClickListener {
             if (collectInputData()) {
                 try {
-                    Intent(Intent.ACTION_GET_CONTENT).also {
-                        it.type = "image/*"
-
-                        startActivityForResult(it, 0)
-                    }
+                    Toast.makeText(
+                        this,
+                        "Choose a profile picture to submit your application",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    getContent.launch("image/*")
                 } catch (e: Exception) {
                     Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == 0) {
-            val imageUri = data?.data
-            Intent(this, SubmittedPageActivity::class.java).also {
-                it.putExtra("EXTRA_IMAGE", imageUri.toString())
-                it.putExtra("EXTRA_FIRST_NAME", firstName)
-                it.putExtra("EXTRA_LAST_NAME", lastName)
-                it.putExtra("EXTRA_ADDRESS", address)
-                it.putExtra("EXTRA_COUNTRY", country)
-                it.putExtra("EXTRA_PIN_CODE", pinCode)
-                it.putExtra("EXTRA_DATE_OF_BIRTH", dateOfBirth)
-                it.putExtra("EXTRA_BLOOD_GROUP", bloodGroup)
-                it.putExtra("EXTRA_PHONE_NUMBER", phoneNumber)
-                startActivity(it)
             }
         }
     }
