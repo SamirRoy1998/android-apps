@@ -108,6 +108,13 @@ class MainActivity : AppCompatActivity() {
             updateData(binding.etBloodGroup, bloodGroup)
             updateData(binding.etContactNumber, phoneNumber)
         }
+
+        binding.btnAlreadyApplied.setOnClickListener {
+            Intent(this, SubmittedPageActivity::class.java).also {
+                startActivity(it)
+
+            }
+        }
     }
 
     private fun hideKeyboard(view: View){
